@@ -1,0 +1,4700 @@
+{
+  "place": "the_normal_elevator_2015.rbxlx",
+  "generatedAt": "2026-10-29T22:46:10.403Z",
+  "assets": [
+    {
+      "id": "125750544",
+      "status": "saved",
+      "file": "125750544.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "125750618",
+      "status": "saved",
+      "file": "125750618.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "125749145",
+      "status": "saved",
+      "file": "125749145.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "125750702",
+      "status": "saved",
+      "file": "125750702.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "125750759",
+      "status": "saved",
+      "file": "125750759.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "125750800",
+      "status": "saved",
+      "file": "125750800.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "125750867",
+      "status": "saved",
+      "file": "125750867.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "129967390",
+      "status": "saved",
+      "file": "129967390.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "129967478",
+      "status": "saved",
+      "file": "129967478.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "128777973",
+      "status": "saved",
+      "file": "128777973.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "128853357",
+      "status": "saved",
+      "file": "128853357.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "130018893",
+      "status": "saved",
+      "file": "130018893.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "132546839",
+      "status": "saved",
+      "file": "132546839.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "132546884",
+      "status": "saved",
+      "file": "132546884.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "160934142",
+      "status": "saved",
+      "file": "160934142.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "160934298",
+      "status": "saved",
+      "file": "160934298.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "160934376",
+      "status": "saved",
+      "file": "160934376.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "160934458",
+      "status": "saved",
+      "file": "160934458.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "160934530",
+      "status": "saved",
+      "file": "160934530.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "160934593",
+      "status": "saved",
+      "file": "160934593.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "129423131",
+      "status": "saved",
+      "file": "129423131.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "129423030",
+      "status": "saved",
+      "file": "129423030.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Skeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.NowDoTheHarlemShake.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.Dapale.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.ChadTheCreator.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby2.corona97.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "Workspace.Lobby4.Gavin.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.FriedChicken.Shedletsky.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Cave.RealSkeleton.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CogBuilding.The Big Cheese.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Brock.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Pokemon.Ash Ketchum.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.War.Knight.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.Jason.Jason.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Ring.The Ring.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.Pokemon.Noob2.Animate",
+          "property": "Source"
+        },
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.MapStorage.FriedChicken.Noob.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "180435571",
+      "status": "saved",
+      "file": "180435571.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "180435792",
+      "status": "saved",
+      "file": "180435792.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "180426354",
+      "status": "saved",
+      "file": "180426354.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "180436148",
+      "status": "saved",
+      "file": "180436148.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "180436334",
+      "status": "saved",
+      "file": "180436334.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "178130996",
+      "status": "saved",
+      "file": "178130996.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182393478",
+      "status": "saved",
+      "file": "182393478.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182435998",
+      "status": "saved",
+      "file": "182435998.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182491037",
+      "status": "saved",
+      "file": "182491037.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182491065",
+      "status": "saved",
+      "file": "182491065.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182436842",
+      "status": "saved",
+      "file": "182436842.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182491248",
+      "status": "saved",
+      "file": "182491248.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182491277",
+      "status": "saved",
+      "file": "182491277.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182436935",
+      "status": "saved",
+      "file": "182436935.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182491368",
+      "status": "saved",
+      "file": "182491368.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "182491423",
+      "status": "saved",
+      "file": "182491423.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Animate",
+          "path": "ServerStorage.Maps.CubeSimulator.TheAmazeman.Animate",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395838",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395847",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395855",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395860",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395868",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395884",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395891",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395897",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395901",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395946",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395957",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395966",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395972",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395979",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395986",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395989",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395993",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131395997",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396003",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396007",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396012",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396016",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396019",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396024",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396029",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396037",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396042",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396044",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396046",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396054",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396063",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396068",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396072",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396078",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396091",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396098",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396102",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396108",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396110",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396113",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396116",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396121",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396125",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396133",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396137",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396142",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396146",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396156",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396162",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396164",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396169",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396173",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396176",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396181",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396185",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396188",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "131396192",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "Decal Changer",
+          "path": "ServerStorage.Maps.SnoopDogg.SnoopDogg.Decal.Decal Changer",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "21057432",
+      "status": "saved",
+      "file": "21057432.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "MainScript",
+          "path": "ServerStorage.Maps.Waffles.MainScript",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "21057425",
+      "status": "saved",
+      "file": "21057425.png",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "MainScript",
+          "path": "ServerStorage.Maps.Waffles.MainScript",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "16127223",
+      "status": "saved",
+      "file": "16127223.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "MainScript",
+          "path": "ServerStorage.Maps.Waffles.MainScript",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "219119986",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "MainScript",
+          "path": "ServerStorage.Maps.Waffles.MainScript",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "20939848",
+      "status": "saved",
+      "file": "20939848.bin",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "MainScript",
+          "path": "ServerStorage.Maps.Waffles.MainScript",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "20939838",
+      "status": "saved",
+      "file": "20939838.png",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "MainScript",
+          "path": "ServerStorage.Maps.Waffles.MainScript",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "259576233",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "ShopScript",
+          "path": "ReplicatedStorage.Shop.ShopScript",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "273168234",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "LocalScript",
+          "path": "ReplicatedStorage.EatGui.LocalScript",
+          "property": "Source"
+        }
+      ]
+    },
+    {
+      "id": "273168259",
+      "status": "failed",
+      "error": "HTTP 401: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <style type=\"text/css\">\n            :root {\n                color-scheme: light dark;\n            }\n        </style>\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n       ",
+      "contexts": [
+        {
+          "type": "Script reference",
+          "name": "LocalScript",
+          "path": "ReplicatedStorage.EatGui.LocalScript",
+          "property": "Source"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1997 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=0">
+    <meta name="color-scheme" content="light">
+    <script>
+      if (new URLSearchParams(window.location.search).has('placeMode'))
+        document.documentElement.classList.add('aya-place-launch');
+    </script>
+    
+    <title>Aya Studio WASM</title>
+    <link rel="icon" type="image/png" href="/aya-studio.png"/>
+    <meta name="title" content="Aya Studio WASM" />
+    <meta name="description" content="Work in progess port of Early 2016 Roblox Studio to web." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://studio.nodium.lol/" />
+    <meta property="og:title" content="Aya Studio WASM" />
+    <meta property="og:description" content="Work in progess port of Early 2016 Roblox Studio to web." />
+    
+    <!-- X (Twitter) -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://studio.nodium.lol/" />
+    <meta property="twitter:title" content="Aya Studio WASM" />
+    <meta property="twitter:description" content="Work in progess port of Early 2016 Roblox Studio to web." />
+    <style>
+      html, body {
+        color-scheme: light;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        width: 100dvw;
+        height: 100dvh;
+      }
+
+      #app-root {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        width: 100dvw;
+        height: 100dvh;
+        overflow: hidden;
+      }
+
+      #screen {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        outline: none;
+        background: transparent !important;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      #screen canvas {
+        background: transparent !important;
+      }
+
+      #screen > .aya-render-canvas {
+        position: absolute;
+        pointer-events: none;
+        z-index: 3 !important;
+        background: transparent !important;
+      }
+
+      #screen > .aya-start-page-frame {
+        position: absolute;
+        border: 0;
+        background: #f5f6f8;
+        color-scheme: light;
+      }
+
+      html.aya-place-launch #screen > .aya-start-page-frame {
+        display: none !important;
+      }
+
+      #qtspinner {
+        position: fixed;
+        inset: 0;
+        z-index: 3;
+        display: grid;
+        place-items: center;
+        margin: 0;
+        background: #f4f6f8;
+        color: #20242a;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #qtspinner .qt-loader {
+        width: min(420px, calc(100vw - 48px));
+        text-align: center;
+      }
+
+      #qtspinner img {
+        display: block;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 12px;
+      }
+
+      #qtstatus {
+        min-height: 20px;
+        margin-top: 10px;
+        color: #59616c;
+        font-size: 13px;
+        line-height: 20px;
+      }
+
+      #qtprogress {
+        display: block;
+        width: 100%;
+        height: 8px;
+        margin-top: 18px;
+        border: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        background: #d9dee5;
+        accent-color: #2878c8;
+      }
+
+      #qtprogress::-webkit-progress-bar {
+        border-radius: 4px;
+        background: #d9dee5;
+      }
+
+      #qtprogress::-webkit-progress-value {
+        border-radius: 4px;
+        background: #2878c8;
+        transition: width 120ms ease-out;
+      }
+
+      #qtprogress::-moz-progress-bar {
+        border-radius: 4px;
+        background: #2878c8;
+      }
+
+      #aya-studio-toast {
+        position: fixed;
+        z-index: 5;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        display: none;
+        max-width: calc(100vw - 32px);
+        padding: 10px 14px;
+        border-radius: 5px;
+        background: rgba(25, 30, 38, 0.95);
+        color: #fff;
+        font: 14px/1.4 Arial, Helvetica, sans-serif;
+        overflow-wrap: anywhere;
+        pointer-events: none;
+      }
+
+      #aya-studio-toast.visible {
+        display: block;
+      }
+    </style>
+  </head>
+  <body onload="init()">
+    <figure id="qtspinner">
+      <div class="qt-loader">
+        <img src="/aya-studio.png" width="150" height="150" alt="">
+        <strong>Qt for WebAssembly: Aya.Studio</strong>
+        <progress id="qtprogress" aria-label="Application download progress"></progress>
+        <div id="qtstatus" role="status" aria-live="polite">Preparing download...</div>
+        <noscript>JavaScript is disabled. Please enable JavaScript to use this application.</noscript>
+      </div>
+    </figure>
+
+    <div id="app-root">
+      <div id="screen" tabindex="0"></div>
+    </div>
+    <div id="aya-studio-toast" role="status" aria-live="polite"></div>
+
+    <script type="text/javascript">
+        const ayaStudioBuildId = '2691dd386d96edfd96297736';
+        window.ayaStudioBuildId = ayaStudioBuildId;
+        const ayaStudioCopyLogsPrefix = '__AYA_STUDIO_COPY_LOGS__:';
+        const ayaStudioConsoleHistory = [];
+        let ayaStudioPendingLogCopy = null;
+        const ayaStudioOriginalConsoleLog = console.log.bind(console);
+        const ayaStudioOriginalConsoleError = console.error.bind(console);
+        const ayaStudioMaxConsoleHistoryEntries = 5000;
+        let ayaStudioToastTimer = 0;
+        const ayaStudioCaptureBrowserError = message => {
+            if (ayaStudioConsoleHistory.length >= ayaStudioMaxConsoleHistoryEntries)
+                ayaStudioConsoleHistory.shift();
+            ayaStudioConsoleHistory.push(`[${new Date().toISOString()}] ${message}`);
+        };
+        const ayaStudioFormatConsoleHistory = () => ayaStudioConsoleHistory.length
+            ? ayaStudioConsoleHistory.join('\n')
+            : 'No uncaught browser errors were captured.';
+        const ayaStudioShowToast = message => {
+            const toast = document.querySelector('#aya-studio-toast');
+            if (!toast)
+                return;
+            toast.textContent = message;
+            toast.classList.add('visible');
+            clearTimeout(ayaStudioToastTimer);
+            ayaStudioToastTimer = setTimeout(() => toast.classList.remove('visible'), 3500);
+        };
+        const ayaStudioCopyTextToClipboard = text => {
+            if (navigator.clipboard?.writeText)
+                return navigator.clipboard.writeText(text);
+
+            const input = document.createElement('textarea');
+            input.value = text;
+            input.setAttribute('readonly', '');
+            input.style.position = 'fixed';
+            input.style.opacity = '0';
+            document.body.appendChild(input);
+            input.select();
+            const copied = document.execCommand('copy');
+            input.remove();
+            if (!copied)
+                throw new Error('Clipboard access is unavailable in this browser.');
+        };
+        const ayaStudioCopyLogs = robloxLogs => {
+            const copiedLogs = [
+                '=== Browser errors ===',
+                ayaStudioFormatConsoleHistory(),
+                '',
+                '=== Roblox client/server console ===',
+                robloxLogs || 'No Roblox console messages were captured.'
+            ].join('\n');
+            const logCount = robloxLogs
+                ? robloxLogs.split('\n').filter(line => line.length > 0).length
+                : 0;
+            try {
+                Promise.resolve(ayaStudioCopyTextToClipboard(copiedLogs)).then(() => {
+                    ayaStudioShowToast(
+                        `Copied ${logCount} Roblox console lines and ${ayaStudioConsoleHistory.length} browser errors.`
+                    );
+                }).catch(error => {
+                    ayaStudioOriginalConsoleError('[Aya Studio] Could not copy console logs:', error);
+                    ayaStudioShowToast(`Could not copy console logs: ${error.message || error}`);
+                });
+            } catch (error) {
+                ayaStudioOriginalConsoleError('[Aya Studio] Could not copy console logs:', error);
+                ayaStudioShowToast(`Could not copy console logs: ${error.message || error}`);
+            }
+        };
+        window.addEventListener('error', event => {
+            const target = event.target;
+            const detail = target && target !== window && target.src
+                ? `Resource failed to load: ${target.src}`
+                : `${event.message || 'Uncaught browser error'} at ${event.filename || 'unknown file'}:${event.lineno || 0}:${event.colno || 0}`;
+            ayaStudioCaptureBrowserError(`[Browser uncaught error] ${detail}`);
+        }, true);
+        window.addEventListener('unhandledrejection', event => {
+            const reason = event.reason;
+            const detail = reason instanceof Error
+                ? reason.stack || reason.message
+                : typeof reason === 'string' ? reason : '[unserializable rejection reason]';
+            ayaStudioCaptureBrowserError(`[Browser unhandled rejection] ${detail}`);
+        });
+        console.log = (...args) => {
+            if (args.length === 1 && typeof args[0] === 'string' &&
+                args[0].startsWith(ayaStudioCopyLogsPrefix)) {
+                const payload = args[0].slice(ayaStudioCopyLogsPrefix.length);
+                if (payload === 'BEGIN') {
+                    ayaStudioPendingLogCopy = '';
+                } else if (payload === 'END' && ayaStudioPendingLogCopy !== null) {
+                    const completeLogs = ayaStudioPendingLogCopy;
+                    ayaStudioPendingLogCopy = null;
+                    ayaStudioCopyLogs(completeLogs);
+                } else if (payload.startsWith('CHUNK:') && ayaStudioPendingLogCopy !== null) {
+                    ayaStudioPendingLogCopy += payload.slice('CHUNK:'.length);
+                } else {
+                    ayaStudioPendingLogCopy = null;
+                    ayaStudioCopyLogs(payload);
+                }
+                return;
+            }
+            ayaStudioOriginalConsoleLog(...args);
+        };
+        const ayaStudioRewriteLegacyUrl = input => {
+            const inputUrl = typeof input === 'string' ? input :
+                (typeof Request !== 'undefined' && input instanceof Request) ? input.url :
+                input instanceof URL ? input.href : null;
+            if (!inputUrl)
+                return input;
+            let parsedUrl;
+            try {
+                parsedUrl = new URL(inputUrl, window.location.href);
+            } catch (_) {
+                return input;
+            }
+            const hostname = parsedUrl.hostname.toLowerCase();
+            let rewrittenUrl = inputUrl;
+            if (hostname === 'kiseki.test') {
+                rewrittenUrl = `${window.location.origin}${parsedUrl.pathname}${parsedUrl.search}${parsedUrl.hash}`;
+            } else if (
+                hostname === 'roblox.com' || hostname.endsWith('.roblox.com') ||
+                hostname === 'rbxcdn.com' || hostname.endsWith('.rbxcdn.com')
+            ) {
+                rewrittenUrl = `${window.location.origin}/RobloxProxy/${hostname}${parsedUrl.pathname}${parsedUrl.search}${parsedUrl.hash}`;
+            }
+            if (rewrittenUrl === inputUrl)
+                return input;
+            return typeof Request !== 'undefined' && input instanceof Request
+                ? new Request(rewrittenUrl, input)
+                : rewrittenUrl;
+        };
+        const ayaStudioFetchBeforeLegacyRewrite = window.fetch.bind(window);
+        window.fetch = (input, init) => ayaStudioFetchBeforeLegacyRewrite(ayaStudioRewriteLegacyUrl(input), init);
+        const ayaStudioNativeXhrOpen = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function(method, url, ...args) {
+            return ayaStudioNativeXhrOpen.call(this, method, ayaStudioRewriteLegacyUrl(url), ...args);
+        };
+        const ayaStudioDataVersion = 'fc3b19dfe375dc71a90f2e3e';
+        // Emscripten still requests Aya.Studio.data so it can apply the Studio
+        // preload layout, but the fetch override serves the identical package
+        // shared by Player, Server, and Studio from one cache key.
+        const ayaStudioRuntimeDataUrl = new URL('Aya.Studio.data', window.location.origin).href;
+        const ayaStudioAddEventListener = EventTarget.prototype.addEventListener;
+        EventTarget.prototype.addEventListener = function(type, listener, options) {
+            if (type === 'wheel') {
+                options = typeof options === 'boolean'
+                    ? { capture: options, passive: false }
+                    : { ...(options || {}), passive: false };
+            }
+            return ayaStudioAddEventListener.call(this, type, listener, options);
+        };
+        const ayaStudioRuntimeCachePrefix = 'aya-studio-runtime-';
+        const ayaStudioRuntimeCacheName = `${ayaStudioRuntimeCachePrefix}${ayaStudioBuildId}`;
+        const ayaStudioRuntimeSizePrefix = 'aya-studio-runtime-size-';
+        const ayaStudioLastPageHideKey = 'aya-studio-last-pagehide';
+        const ayaStudioReloadReleaseDelayMs = 1500;
+        const ayaStudioRuntimeAssetNames = new Set(['Aya.Studio.wasm', 'Aya.Studio.data']);
+        const ayaStudioNativeFetch = window.fetch.bind(window);
+        const ayaStudioRuntimeDownloads = new Map(
+            Array.from(ayaStudioRuntimeAssetNames, name => [name, {
+                name,
+                started: false,
+                loaded: 0,
+                total: 0,
+                done: false,
+                cached: false
+            }])
+        );
+        let ayaStudioProgressUpdateQueued = false;
+        let ayaStudioRuntimeCachePromise;
+
+        const ayaStudioDownloadBlob = (blob, downloadName) => {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = downloadName;
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(() => {
+                URL.revokeObjectURL(url);
+                link.remove();
+            }, 0);
+        };
+
+        window.ayaStudioDownloadFile = (fileSystem, path, downloadName) => {
+            try {
+                const name = downloadName || 'download.bin';
+                const extension = name.toLowerCase().split('.').pop();
+                const mimeTypes = {
+                    lua: 'text/plain',
+                    mtl: 'text/plain',
+                    obj: 'text/plain',
+                    png: 'image/png',
+                    rbxmx: 'application/xml',
+                    rbxlx: 'application/xml'
+                };
+                const data = fileSystem.readFile(path);
+                ayaStudioDownloadBlob(new Blob([data], {
+                    type: mimeTypes[extension] || 'application/octet-stream'
+                }), name);
+            } catch (error) {
+                console.error('[Aya Studio wasm] Failed to download file', error);
+            }
+        };
+
+        window.ayaStudioOpenInsertFile = (fileSystem, onReady, insertInto) => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = insertInto
+                ? '.rbxm,.rbxmx,.rbxs,.lua,.txt,application/octet-stream,text/xml,application/xml,text/plain'
+                : '.rbxm,.rbxmx,application/octet-stream,text/xml,application/xml';
+            input.style.display = 'none';
+
+            const removeInput = () => {
+                if (input.isConnected)
+                    input.remove();
+            };
+
+            input.addEventListener('cancel', removeInput, { once: true });
+            input.addEventListener('change', () => {
+                const file = input.files?.[0];
+                removeInput();
+                if (!file)
+                    return;
+
+                const extension = file.name.toLowerCase().split('.').pop();
+                const isModel = extension === 'rbxm' || extension === 'rbxmx';
+                if (!isModel && !insertInto) {
+                    console.error('[Aya Studio wasm] The selected file is not a Roblox model');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = () => {
+                    let path = '';
+                    try {
+                        const safeName = (file.name || 'insert.rbxm')
+                            .replace(/[\\/:*?"<>|]/g, '_');
+                        path = `/tmp/aya-insert-${Date.now()}-${safeName}`;
+                        fileSystem.writeFile(path, new Uint8Array(reader.result));
+                        onReady(path, isModel ? 1 : 0, insertInto ? 1 : 0);
+                    } catch (error) {
+                        if (path) {
+                            try {
+                                fileSystem.unlink(path);
+                            } catch (_) {
+                            }
+                        }
+                        console.error('[Aya Studio wasm] Failed to insert local file', error);
+                    }
+                };
+                reader.onerror = () => {
+                    console.error('[Aya Studio wasm] Failed to read local file', reader.error);
+                };
+                reader.readAsArrayBuffer(file);
+            }, { once: true });
+
+            document.body.appendChild(input);
+            input.click();
+        };
+
+        window.ayaStudioDownloadDirectoryAsZip = (fileSystem, directoryPath, downloadName) => {
+            try {
+                const directory = directoryPath.replace(/\/$/, '');
+                const encoder = new TextEncoder();
+                const files = fileSystem.readdir(directory)
+                    .filter(name => name !== '.' && name !== '..')
+                    .filter(name => !fileSystem.isDir(fileSystem.stat(`${directory}/${name}`).mode))
+                    .sort();
+
+                if (!files.length)
+                    throw new Error(`No exported files were created in ${directory}`);
+
+                const write16 = (view, offset, value) => view.setUint16(offset, value, true);
+                const write32 = (view, offset, value) => view.setUint32(offset, value >>> 0, true);
+                const makeCrcTable = () => {
+                    const table = new Uint32Array(256);
+                    for (let n = 0; n < 256; ++n) {
+                        let value = n;
+                        for (let k = 0; k < 8; ++k)
+                            value = (value & 1) ? (0xedb88320 ^ (value >>> 1)) : (value >>> 1);
+                        table[n] = value >>> 0;
+                    }
+                    return table;
+                };
+                const crcTable = window.ayaStudioZipCrcTable ||
+                    (window.ayaStudioZipCrcTable = makeCrcTable());
+                const crc32 = data => {
+                    let crc = 0xffffffff;
+                    for (let i = 0; i < data.length; ++i)
+                        crc = crcTable[(crc ^ data[i]) & 0xff] ^ (crc >>> 8);
+                    return (crc ^ 0xffffffff) >>> 0;
+                };
+
+                const now = new Date();
+                const dosTime = (now.getHours() << 11) | (now.getMinutes() << 5) |
+                    (now.getSeconds() >> 1);
+                const dosDate = ((Math.max(1980, now.getFullYear()) - 1980) << 9) |
+                    ((now.getMonth() + 1) << 5) | now.getDate();
+                const localParts = [];
+                const entries = [];
+                let localOffset = 0;
+
+                for (const fileName of files) {
+                    const fileNameBytes = encoder.encode(fileName);
+                    const data = fileSystem.readFile(`${directory}/${fileName}`);
+                    const crc = crc32(data);
+                    const header = new Uint8Array(30 + fileNameBytes.length);
+                    const view = new DataView(header.buffer);
+                    write32(view, 0, 0x04034b50);
+                    write16(view, 4, 20);
+                    write16(view, 6, 0x0800);
+                    write16(view, 8, 0);
+                    write16(view, 10, dosTime);
+                    write16(view, 12, dosDate);
+                    write32(view, 14, crc);
+                    write32(view, 18, data.length);
+                    write32(view, 22, data.length);
+                    write16(view, 26, fileNameBytes.length);
+                    write16(view, 28, 0);
+                    header.set(fileNameBytes, 30);
+                    localParts.push(header, data);
+                    entries.push({ fileNameBytes, crc, size: data.length, localOffset });
+                    localOffset += header.length + data.length;
+                }
+
+                const centralParts = [];
+                let centralSize = 0;
+                for (const entry of entries) {
+                    const header = new Uint8Array(46 + entry.fileNameBytes.length);
+                    const view = new DataView(header.buffer);
+                    write32(view, 0, 0x02014b50);
+                    write16(view, 4, 20);
+                    write16(view, 6, 20);
+                    write16(view, 8, 0x0800);
+                    write16(view, 10, 0);
+                    write16(view, 12, dosTime);
+                    write16(view, 14, dosDate);
+                    write32(view, 16, entry.crc);
+                    write32(view, 20, entry.size);
+                    write32(view, 24, entry.size);
+                    write16(view, 28, entry.fileNameBytes.length);
+                    write16(view, 30, 0);
+                    write16(view, 32, 0);
+                    write16(view, 34, 0);
+                    write16(view, 36, 0);
+                    write32(view, 38, 0);
+                    write32(view, 42, entry.localOffset);
+                    header.set(entry.fileNameBytes, 46);
+                    centralParts.push(header);
+                    centralSize += header.length;
+                }
+
+                const end = new Uint8Array(22);
+                const endView = new DataView(end.buffer);
+                write32(endView, 0, 0x06054b50);
+                write16(endView, 4, 0);
+                write16(endView, 6, 0);
+                write16(endView, 8, entries.length);
+                write16(endView, 10, entries.length);
+                write32(endView, 12, centralSize);
+                write32(endView, 16, localOffset);
+                write16(endView, 20, 0);
+
+                ayaStudioDownloadBlob(
+                    new Blob([...localParts, ...centralParts, end], { type: 'application/zip' }),
+                    downloadName || 'export.zip');
+            } catch (error) {
+                console.error('[Aya Studio wasm] Failed to package OBJ export', error);
+            }
+        };
+
+        window.ayaStudioIgnoredPointerCaptureErrors = 0;
+        const ayaStudioIgnoreStalePointerCapture = (operation, element, pointerId) => {
+            try {
+                return operation.call(element, pointerId);
+            } catch (error) {
+                if (error?.name !== 'InvalidStateError' && error?.name !== 'NotFoundError')
+                    throw error;
+
+                ++window.ayaStudioIgnoredPointerCaptureErrors;
+                return undefined;
+            }
+        };
+
+        const ayaStudioNativeSetPointerCapture = Element.prototype.setPointerCapture;
+        if (ayaStudioNativeSetPointerCapture) {
+            Element.prototype.setPointerCapture = function(pointerId) {
+                return ayaStudioIgnoreStalePointerCapture(ayaStudioNativeSetPointerCapture, this, pointerId);
+            };
+        }
+
+        const ayaStudioNativeReleasePointerCapture = Element.prototype.releasePointerCapture;
+        if (ayaStudioNativeReleasePointerCapture) {
+            Element.prototype.releasePointerCapture = function(pointerId) {
+                return ayaStudioIgnoreStalePointerCapture(ayaStudioNativeReleasePointerCapture, this, pointerId);
+            };
+        }
+
+        function ayaStudioRuntimeAssetName(input)
+        {
+            const value = input instanceof Request ? input.url : String(input);
+            const url = new URL(value, window.location.href);
+            if (url.origin !== window.location.origin)
+                return null;
+
+            const name = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
+            return ayaStudioRuntimeAssetNames.has(name) ? name : null;
+        }
+
+        function ayaStudioFormatBytes(value)
+        {
+            if (value < 1024 * 1024)
+                return `${Math.max(0, Math.round(value / 1024))} KB`;
+            return `${(value / (1024 * 1024)).toFixed(1)} MB`;
+        }
+
+        function ayaStudioRenderDownloadProgress()
+        {
+            ayaStudioProgressUpdateQueued = false;
+            const progress = document.querySelector('#qtprogress');
+            const status = document.querySelector('#qtstatus');
+            if (!progress || !status)
+                return;
+
+            const downloads = Array.from(ayaStudioRuntimeDownloads.values());
+            const started = downloads.filter(download => download.started);
+            const allDone = downloads.every(download => download.done);
+            const totalsKnown = started.length === downloads.length && downloads.every(download => download.total > 0);
+            const loaded = downloads.reduce((sum, download) => sum + download.loaded, 0);
+            const total = downloads.reduce((sum, download) => sum + download.total, 0);
+
+            if (totalsKnown && total > 0) {
+                progress.max = total;
+                progress.value = Math.min(loaded, total);
+            } else {
+                progress.removeAttribute('value');
+            }
+
+            if (allDone) {
+                progress.max = 1;
+                progress.value = 1;
+                status.textContent = downloads.every(download => download.cached)
+                    ? 'Loading cached application...'
+                    : 'Starting Aya Studio...';
+            } else if (totalsKnown && total > 0) {
+                const percent = Math.min(100, Math.floor((loaded / total) * 100));
+                status.textContent = `Downloading ${percent}% (${ayaStudioFormatBytes(loaded)} of ${ayaStudioFormatBytes(total)})`;
+            } else if (loaded > 0) {
+                status.textContent = `Downloading application (${ayaStudioFormatBytes(loaded)})`;
+            } else {
+                status.textContent = 'Preparing download...';
+            }
+        }
+
+        function ayaStudioQueueProgressUpdate()
+        {
+            if (ayaStudioProgressUpdateQueued)
+                return;
+            ayaStudioProgressUpdateQueued = true;
+            requestAnimationFrame(ayaStudioRenderDownloadProgress);
+        }
+
+        function ayaStudioUpdateDownload(name, update)
+        {
+            const current = ayaStudioRuntimeDownloads.get(name);
+            if (!current)
+                return;
+            Object.assign(current, update);
+            ayaStudioQueueProgressUpdate();
+        }
+
+        function ayaStudioStoredAssetSize(name)
+        {
+            try {
+                return Number.parseInt(localStorage.getItem(`${ayaStudioRuntimeSizePrefix}${ayaStudioBuildId}-${name}`) || '0', 10) || 0;
+            } catch (error) {
+                return 0;
+            }
+        }
+
+        function ayaStudioStoreAssetSize(name, size)
+        {
+            try {
+                localStorage.setItem(`${ayaStudioRuntimeSizePrefix}${ayaStudioBuildId}-${name}`, String(size));
+            } catch (error) {
+            }
+        }
+
+        function ayaStudioTrackResponse(response, name)
+        {
+            const encoded = !!response.headers.get('Content-Encoding');
+            const declaredLength = encoded
+                ? 0
+                : Number.parseInt(response.headers.get('Content-Length') || '0', 10) || 0;
+            let loaded = 0;
+            ayaStudioUpdateDownload(name, {
+                started: true,
+                loaded: 0,
+                total: declaredLength,
+                done: false,
+                cached: false
+            });
+
+            if (!response.body) {
+                ayaStudioUpdateDownload(name, {
+                    loaded: declaredLength,
+                    total: declaredLength || 1,
+                    done: true
+                });
+                return response;
+            }
+
+            const reader = response.body.getReader();
+            const stream = new ReadableStream({
+                async pull(controller) {
+                    try {
+                        const result = await reader.read();
+                        if (result.done) {
+                            const measuredLength = loaded || declaredLength || 1;
+                            ayaStudioStoreAssetSize(name, measuredLength);
+                            ayaStudioUpdateDownload(name, {
+                                loaded: measuredLength,
+                                total: measuredLength,
+                                done: true
+                            });
+                            controller.close();
+                            return;
+                        }
+
+                        loaded += result.value.byteLength;
+                        ayaStudioUpdateDownload(name, {
+                            loaded,
+                            total: declaredLength || 0
+                        });
+                        controller.enqueue(result.value);
+                    } catch (error) {
+                        controller.error(error);
+                    }
+                },
+                cancel(reason) {
+                    return reader.cancel(reason);
+                }
+            });
+
+            const headers = new Headers(response.headers);
+            headers.delete('Content-Encoding');
+            headers.delete('Content-Length');
+
+            return new Response(stream, {
+                status: response.status,
+                statusText: response.statusText,
+                headers
+            });
+        }
+
+        async function ayaStudioRuntimeCache()
+        {
+            if (!('caches' in window))
+                return null;
+            if (!ayaStudioRuntimeCachePromise)
+                ayaStudioRuntimeCachePromise = caches.open(ayaStudioRuntimeCacheName).catch(() => null);
+            return ayaStudioRuntimeCachePromise;
+        }
+
+        async function ayaStudioPruneRuntimeCaches()
+        {
+            if (!('caches' in window))
+                return;
+
+            const cacheNames = await caches.keys();
+            await Promise.all(cacheNames
+                .filter(name => name.startsWith(ayaStudioRuntimeCachePrefix) && name !== ayaStudioRuntimeCacheName)
+                .map(name => caches.delete(name)));
+
+            try {
+                for (let index = localStorage.length - 1; index >= 0; --index) {
+                    const key = localStorage.key(index);
+                    if (key && key.startsWith(ayaStudioRuntimeSizePrefix) &&
+                        !key.startsWith(`${ayaStudioRuntimeSizePrefix}${ayaStudioBuildId}-`))
+                        localStorage.removeItem(key);
+                }
+            } catch (error) {
+            }
+        }
+
+        async function ayaStudioCachedFetch(input, init)
+        {
+            const name = ayaStudioRuntimeAssetName(input);
+            if (!name)
+                return ayaStudioNativeFetch(input, init);
+
+            let request = input instanceof Request ? input : new Request(input, init);
+            if (request.method !== 'GET')
+                return ayaStudioNativeFetch(request);
+
+            // Keep the Studio preload filename while sharing the downloaded bytes.
+            const sharedData = name === 'Aya.Studio.data';
+            if (sharedData) {
+                const versionedRuntimeDataUrl =
+                    ayaStudioRuntimeDataUrl +
+                    (ayaStudioDataVersion.startsWith('data-') ? '' : `?v=${ayaStudioDataVersion}`);
+                if (new URL(request.url, window.location.href).href !== versionedRuntimeDataUrl)
+                    request = new Request(versionedRuntimeDataUrl, { headers: request.headers });
+            }
+
+            const cache = sharedData
+                ? await caches.open('ayawasm-runtime-v1').catch(() => null)
+                : await ayaStudioRuntimeCache();
+            if (cache) {
+                const cached = await cache.match(request);
+                if (cached) {
+                    const size = sharedData
+                        ? (Number.parseInt(cached.headers.get('x-aya-runtime-size') || '0', 10) ||
+                           Number.parseInt(cached.headers.get('Content-Length') || '0', 10) || 1)
+                        : (ayaStudioStoredAssetSize(name) ||
+                           Number.parseInt(cached.headers.get('Content-Length') || '0', 10) || 1);
+                    ayaStudioUpdateDownload(name, {
+                        started: true,
+                        loaded: size,
+                        total: size,
+                        done: true,
+                        cached: true
+                    });
+                    return cached;
+                }
+            }
+
+            const response = await ayaStudioNativeFetch(request);
+            if (!response.ok)
+                return response;
+
+            const tracked = ayaStudioTrackResponse(response, name);
+            if (!cache)
+                return tracked;
+
+            try {
+                if (sharedData) {
+                    const headers = new Headers(tracked.headers);
+                    headers.delete('content-encoding');
+                    headers.delete('content-length');
+                    headers.delete('content-range');
+                    headers.delete('transfer-encoding');
+                    headers.set('x-aya-runtime-size', String(ayaStudioRuntimeDownloads.get(name)?.total || 0));
+                    await cache.put(request, new Response(await tracked.clone().arrayBuffer(), { headers }));
+                } else {
+                    await cache.put(request, tracked);
+                }
+                const cached = await cache.match(request);
+                if (cached)
+                    return cached;
+            } catch (error) {
+                console.warn(`[Aya Studio] Could not cache ${name}:`, error);
+            }
+
+            const fallback = await ayaStudioNativeFetch(request);
+            return fallback.ok ? ayaStudioTrackResponse(fallback, name) : fallback;
+        }
+
+        async function ayaStudioCompileWasm(response)
+        {
+            if (!response.ok)
+                throw new Error(`Could not fetch Aya.Studio.wasm: ${response.status}`);
+
+            if (WebAssembly.compileStreaming) {
+                const fallback = response.clone();
+                try {
+                    return await WebAssembly.compileStreaming(response);
+                } catch (error) {
+                    return WebAssembly.compile(await fallback.arrayBuffer());
+                }
+            }
+
+            return WebAssembly.compile(await response.arrayBuffer());
+        }
+
+        async function ayaStudioPrimeDataFile()
+        {
+            const response = await ayaStudioCachedFetch(ayaStudioAsset('Aya.Studio.data'));
+            if (!response.ok)
+                throw new Error(`Could not fetch Aya.Studio.data: ${response.status}`);
+            if (response.body)
+                await response.body.cancel().catch(() => {});
+        }
+
+        window.fetch = ayaStudioCachedFetch;
+
+        const ayaStudioMobileDevice = (() => {
+            const userAgentMobile = navigator.userAgentData?.mobile === true ||
+                /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+            const coarseTouchDevice = navigator.maxTouchPoints > 0 &&
+                window.matchMedia('(pointer: coarse)').matches &&
+                Math.min(window.screen.width, window.screen.height) <= 900;
+            return userAgentMobile || coarseTouchDevice;
+        })();
+        window.ayaStudioMobileDevice = ayaStudioMobileDevice;
+
+        const ayaStudioUiScale = (() => {
+            if (!ayaStudioMobileDevice)
+                return 1;
+
+            const requestedScale = Number.parseFloat(
+                new URLSearchParams(window.location.search).get('uiScale'));
+            if (Number.isFinite(requestedScale))
+                return Math.min(1, Math.max(0.5, requestedScale));
+
+            return 0.8;
+        })();
+        window.ayaStudioUiScale = ayaStudioUiScale;
+
+        if (ayaStudioMobileDevice) {
+            document.documentElement.classList.add('aya-mobile-device');
+            const logicalViewportWidth = Math.round(980 / ayaStudioUiScale);
+            document.querySelector('meta[name="viewport"]').setAttribute(
+                'content', `width=${logicalViewportWidth}, viewport-fit=cover, user-scalable=yes`);
+        }
+
+        function ayaStudioAsset(path)
+        {
+            return `${path}?v=${ayaStudioBuildId}`;
+        }
+
+        async function init()
+        {
+            const spinner = document.querySelector('#qtspinner');
+            const appRoot = document.querySelector('#app-root');
+            const screen = document.querySelector('#screen');
+            const status = document.querySelector('#qtstatus');
+            const progress = document.querySelector('#qtprogress');
+            const renderOverlayDisabled = new URLSearchParams(window.location.search).get('renderOverlay') === '0';
+            window.ayaStudioRenderOverlayDisabled = renderOverlayDisabled;
+            window.ayaStudioRenderCanvasSuppressed = false;
+            let renderCanvasRect = { x: 0, y: 0, width: 1, height: 1 };
+            let qtInstance = null;
+            let pageShuttingDown = false;
+            let placeOpenSequence = 0;
+
+            const normalizeVirtualVersion = value => {
+                const year = Number(value ?? 2016);
+                if (![2012, 2013, 2014, 2015, 2016].includes(year))
+                    throw new RangeError(`Unsupported virtual version: ${value}`);
+                return year;
+            };
+
+            const normalizePlaceOptions = options => {
+                if (typeof options === 'number')
+                    return { virtualVersion: options };
+                return options || {};
+            };
+
+            const sanitizePlaceName = value => {
+                const input = String(value || 'place.rbxl');
+                const baseName = input.split(/[\\/]/).pop() || 'place.rbxl';
+                const safeName = baseName
+                    .replace(/[\\/:*?"<>|]/g, '_')
+                    .replace(/[\u0000-\u001f]/g, '_');
+                if (!/\.(rbxl|rbxlx)$/i.test(safeName))
+                    throw new TypeError('Aya Studio can open .rbxl and .rbxlx place files');
+                return safeName;
+            };
+
+            const sourceNameFromUrl = value => {
+                try {
+                    const url = new URL(value, window.location.href);
+                    return decodeURIComponent(url.pathname.split('/').pop() || 'place.rbxl');
+                } catch (error) {
+                    return 'place.rbxl';
+                }
+            };
+
+            const readPlaceSource = async (source, requestedName) => {
+                if (typeof source === 'string') {
+                    const response = await ayaStudioNativeFetch(source);
+                    if (!response.ok)
+                        throw new Error(`Failed to download place (${response.status} ${response.statusText})`);
+                    return {
+                        bytes: new Uint8Array(await response.arrayBuffer()),
+                        name: sanitizePlaceName(requestedName || sourceNameFromUrl(source))
+                    };
+                }
+
+                if (source && typeof source.arrayBuffer === 'function') {
+                    return {
+                        bytes: new Uint8Array(await source.arrayBuffer()),
+                        name: sanitizePlaceName(requestedName || source.name)
+                    };
+                }
+
+                if (source instanceof ArrayBuffer ||
+                    Object.prototype.toString.call(source) === '[object ArrayBuffer]') {
+                    return {
+                        bytes: new Uint8Array(source),
+                        name: sanitizePlaceName(requestedName)
+                    };
+                }
+
+                if (ArrayBuffer.isView(source)) {
+                    return {
+                        bytes: new Uint8Array(source.buffer, source.byteOffset, source.byteLength),
+                        name: sanitizePlaceName(requestedName)
+                    };
+                }
+
+                throw new TypeError('Place source must be a File, Blob, URL, ArrayBuffer, or typed array');
+            };
+
+            const requirePlaceRuntime = () => {
+                if (!qtInstance || !qtInstance.FS || typeof qtInstance.cwrap !== 'function')
+                    throw new Error('Aya Studio is still loading');
+                return qtInstance;
+            };
+
+            const openPlace = async (source, rawOptions = {}) => {
+                const options = normalizePlaceOptions(rawOptions);
+                const virtualVersion = normalizeVirtualVersion(options.virtualVersion);
+                const runtime = requirePlaceRuntime();
+                const place = await readPlaceSource(source, options.name);
+                const directory = `/tmp/aya-welcome-${Date.now()}-${++placeOpenSequence}`;
+                const path = `${directory}/${place.name}`;
+
+                runtime.FS.mkdirTree(directory);
+                runtime.FS.writeFile(path, place.bytes);
+
+                try {
+                    const openFile = runtime.cwrap(
+                        'aya_studio_wasm_open_file_with_version_ready',
+                        null,
+                        ['string', 'number']
+                    );
+                    openFile(path, virtualVersion);
+                } catch (error) {
+                    try {
+                        runtime.FS.unlink(path);
+                        runtime.FS.rmdir(directory);
+                    } catch (cleanupError) {
+                    }
+                    throw error;
+                }
+
+                return {
+                    name: place.name,
+                    path,
+                    size: place.bytes.byteLength,
+                    virtualVersion
+                };
+            };
+
+            const setPlaceMode = () => {
+                document.documentElement.classList.add('aya-place-launch');
+            };
+
+            const pickPlace = (rawOptions = {}) => {
+                const options = normalizePlaceOptions(rawOptions);
+                return new Promise((resolve, reject) => {
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = '.rbxl,.rbxlx,application/octet-stream,text/xml,application/xml';
+                    input.style.display = 'none';
+
+                    const finish = () => {
+                        input.remove();
+                    };
+
+                    input.addEventListener('cancel', () => {
+                        finish();
+                        resolve(null);
+                    }, { once: true });
+
+                    input.addEventListener('change', async () => {
+                        const file = input.files && input.files[0];
+                        finish();
+                        if (!file) {
+                            resolve(null);
+                            return;
+                        }
+
+                        try {
+                            resolve(await openPlace(file, options));
+                        } catch (error) {
+                            reject(error);
+                        }
+                    }, { once: true });
+
+                    document.body.appendChild(input);
+                    input.click();
+                });
+            };
+
+            window.AyaStudio = {
+                versions: Object.freeze([2016, 2015, 2014, 2013, 2012]),
+                isReady: () => Boolean(qtInstance && qtInstance.FS && typeof qtInstance.cwrap === 'function'),
+                setPlaceMode,
+                openPlace,
+                pickPlace
+            };
+            window.ayaStudioOpenPlace = openPlace;
+            window.dispatchEvent(new CustomEvent('aya-studio-api-ready'));
+
+            const installAsyncifyDiagnostics = instance => {
+                const asyncify = instance?.Asyncify;
+                if (!ayaStudioBuildId.startsWith('diagnostic-') ||
+                    !asyncify || asyncify.ayaStudioDiagnosticsInstalled)
+                    return;
+
+                const originalWhenDone = asyncify.whenDone;
+                let activeOperation = null;
+                const describeOperation = () => {
+                    let rewindExport = '';
+                    try {
+                        if (asyncify.currData)
+                            rewindExport = asyncify.getDataRewindFuncName(asyncify.currData) || '';
+                    } catch (error) {
+                    }
+                    return {
+                        state: asyncify.state,
+                        currentData: asyncify.currData,
+                        rewindExport,
+                        exportCallStack: [...asyncify.exportCallStack],
+                        javascriptStack: new Error().stack
+                    };
+                };
+
+                asyncify.whenDone = function(...args) {
+                    const operation = describeOperation();
+                    if (asyncify.asyncPromiseHandlers) {
+                        console.error('[Aya Studio diagnostic] Overlapping Asyncify operations', {
+                            active: activeOperation,
+                            competing: operation
+                        });
+                    } else {
+                        activeOperation = operation;
+                    }
+                    return originalWhenDone.apply(asyncify, args);
+                };
+                asyncify.ayaStudioDiagnosticsInstalled = true;
+            };
+
+            const unlockAudio = () => {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext)
+                    return;
+
+                let context = window.ayaStudioAudioContext;
+                if (!context) {
+                    try {
+                        context = new AudioContext({ latencyHint: 'interactive' });
+                    } catch (error) {
+                        context = new AudioContext();
+                    }
+                    window.ayaStudioAudioContext = context;
+                }
+                if (context.state === 'suspended')
+                    context.resume();
+            };
+
+            const activeRenderCanvas = () => {
+                const canvasId = window.ayaStudioRenderCanvasRect?.canvasId;
+                return (canvasId ? document.getElementById(canvasId) : null) ||
+                    screen.querySelector(':scope > .aya-render-canvas');
+            };
+
+            window.ayaInstallDiagnostics({
+                target: 'wasm-studio',
+                buildId: ayaStudioBuildId,
+                engineExport: 'aya_studio_wasm_get_engine_diagnostics',
+                getModule: () => qtInstance,
+                getRenderCanvas: activeRenderCanvas,
+                getTargetState: () => ({
+                    runtimeReady: Boolean(qtInstance),
+                    mobile: ayaStudioMobileDevice,
+                    uiScale: ayaStudioUiScale,
+                    renderCanvasRect: window.ayaStudioRenderCanvasRect || renderCanvasRect,
+                    renderCanvasSuppressed: window.ayaStudioRenderCanvasSuppressed,
+                    renderOverlayDisabled: window.ayaStudioRenderOverlayDisabled,
+                    renderStack: window.ayaStudioRenderStack || null,
+                    startupResize: window.ayaStudioStartupResize || null,
+                    qtShadowRootCount: window.ayaStudioQtShadowRootCount ?? null,
+                    pointerLock: window.ayaStudioPointerLockState || null
+                })
+            });
+
+            const qtWindowSelector = '[id^="qt-window-"]';
+            let qtRenderHostWindow = null;
+            let qtRenderHostStyleObserver = null;
+            let renderCanvasStackObserver = null;
+            const observedQtMutationRoots = new WeakSet();
+
+            const qtDomRoots = () => {
+                const roots = [document];
+                document.querySelectorAll('*').forEach(element => {
+                    if (element.shadowRoot && element.shadowRoot.mode === 'open')
+                        roots.push(element.shadowRoot);
+                });
+                window.ayaStudioQtShadowRootCount = roots.length - 1;
+                return roots;
+            };
+
+            const observeQtMutationRoots = roots => {
+                if (!renderCanvasStackObserver)
+                    return;
+
+                roots.forEach(root => {
+                    const target = root === document ? document.body : root;
+                    if (!target || observedQtMutationRoots.has(target))
+                        return;
+
+                    renderCanvasStackObserver.observe(target, {
+                        attributes: true,
+                        attributeFilter: ['style'],
+                        attributeOldValue: true,
+                        childList: true,
+                        subtree: true
+                    });
+                    observedQtMutationRoots.add(target);
+                });
+            };
+
+            const qtWindowZIndex = element => {
+                if (!element)
+                    return Number.NaN;
+
+                const inlineValue = Number.parseInt(element.style.zIndex, 10);
+                if (Number.isFinite(inlineValue))
+                    return inlineValue;
+                return Number.parseInt(window.getComputedStyle(element).zIndex, 10);
+            };
+
+            const qtWindowStackReference = element => {
+                if (!element)
+                    return null;
+
+                const root = element.getRootNode();
+                return root instanceof ShadowRoot && root.host instanceof HTMLElement
+                    ? root.host
+                    : element;
+            };
+
+            const findQtRenderHostWindow = (forceRefresh = false) => {
+                if (!forceRefresh && qtRenderHostWindow && qtRenderHostWindow.isConnected &&
+                    qtRenderHostWindow.style.display !== 'none')
+                    return qtRenderHostWindow;
+
+                qtRenderHostWindow = null;
+                const roots = qtDomRoots();
+                observeQtMutationRoots(roots);
+                const qtWindows = roots.flatMap(root => Array.from(root.querySelectorAll(qtWindowSelector)));
+                const anchoredMainWindow = qtWindows.find(element => element instanceof HTMLElement &&
+                    element.style.display !== 'none' &&
+                    Number.parseFloat(element.style.left) === 0 &&
+                    Number.parseFloat(element.style.top) === 0);
+                if (anchoredMainWindow)
+                    qtRenderHostWindow = anchoredMainWindow;
+
+                const focusedQtCanvas = window.ayaStudioQtFocusTarget instanceof HTMLCanvasElement &&
+                    screen.contains(window.ayaStudioQtFocusTarget) &&
+                    !window.ayaStudioQtFocusTarget.classList.contains('aya-render-canvas')
+                    ? window.ayaStudioQtFocusTarget
+                    : null;
+                const primaryQtCanvas = focusedQtCanvas || screen.querySelector('canvas:not(.aya-render-canvas)');
+                const primaryQtWindow = primaryQtCanvas?.closest(qtWindowSelector);
+                if (!qtRenderHostWindow && primaryQtWindow instanceof HTMLElement && primaryQtWindow.style.display !== 'none' &&
+                    primaryQtWindow.getClientRects().length > 0)
+                    qtRenderHostWindow = primaryQtWindow;
+
+                let largestArea = 0;
+                qtWindows.forEach(element => {
+                    if (!(element instanceof HTMLElement) || element.style.display === 'none' || element.getClientRects().length === 0)
+                        return;
+
+                    const rect = element.getBoundingClientRect();
+                    const area = Math.max(0, rect.width) * Math.max(0, rect.height);
+                    if (!qtRenderHostWindow && area > largestArea) {
+                        largestArea = area;
+                        qtRenderHostWindow = element;
+                    }
+                });
+
+                window.ayaStudioQtRenderHostWindow = qtRenderHostWindow;
+                window.ayaStudioQtRenderHostWindowId = qtRenderHostWindow?.id || '';
+                if (qtRenderHostStyleObserver)
+                    qtRenderHostStyleObserver.disconnect();
+                if (qtRenderHostWindow) {
+                    qtRenderHostStyleObserver = new MutationObserver(() => syncRenderCanvasStack());
+                    qtRenderHostStyleObserver.observe(qtRenderHostWindow, {
+                        attributes: true,
+                        attributeFilter: ['style']
+                    });
+                }
+                return qtRenderHostWindow;
+            };
+
+            const qtBaseZIndex = () => {
+                const host = findQtRenderHostWindow();
+                const hostZIndex = qtWindowZIndex(host);
+                if (!Number.isFinite(hostZIndex))
+                    return 3;
+
+                const canvas = activeRenderCanvas();
+                const stackReference = qtWindowStackReference(host);
+                const canvasFollowsHost = canvas && stackReference &&
+                    !!(stackReference.compareDocumentPosition(canvas) & Node.DOCUMENT_POSITION_FOLLOWING);
+                return hostZIndex + (canvas && !canvasFollowsHost ? 1 : 0);
+            };
+            window.ayaStudioQtBaseZIndex = qtBaseZIndex;
+
+            const syncRenderCanvasStack = (forceHostRefresh = false) => {
+                const canvases = screen.querySelectorAll(':scope > .aya-render-canvas');
+                if (canvases.length === 0)
+                    return;
+
+                const host = findQtRenderHostWindow(forceHostRefresh);
+                const hostZIndex = qtWindowZIndex(host);
+                if (!Number.isFinite(hostZIndex))
+                    return;
+
+                let activeStack = null;
+                const stackReference = qtWindowStackReference(host);
+                canvases.forEach(canvas => {
+                    const canvasFollowsHost = stackReference &&
+                        !!(stackReference.compareDocumentPosition(canvas) & Node.DOCUMENT_POSITION_FOLLOWING);
+                    const desiredZIndex = hostZIndex + (canvasFollowsHost ? 0 : 1);
+                    if (Number.parseInt(canvas.style.zIndex, 10) !== desiredZIndex ||
+                        canvas.style.getPropertyPriority('z-index') !== 'important')
+                        canvas.style.setProperty('z-index', String(desiredZIndex), 'important');
+                    if (!activeStack || canvas === activeRenderCanvas()) {
+                        activeStack = {
+                            hostId: host.id,
+                            hostZIndex,
+                            stackReferenceId: stackReference?.id || '',
+                            canvasId: canvas.id,
+                            canvasZIndex: desiredZIndex,
+                            canvasFollowsHost
+                        };
+                    }
+                });
+
+                window.ayaStudioRenderStack = activeStack;
+            };
+            window.ayaStudioSyncRenderCanvasStack = () => syncRenderCanvasStack(true);
+
+            const updateRenderCanvasDisplay = () => {
+                const canvas = activeRenderCanvas();
+                if (!canvas)
+                    return;
+
+                const visible = !!window.ayaStudioRenderCanvasRect?.visible &&
+                    !renderOverlayDisabled;
+                syncRenderCanvasStack();
+                canvas.style.setProperty('display', visible ? 'block' : 'none', 'important');
+            };
+
+            const maintainRenderCanvasStack = () => {
+                const canvas = activeRenderCanvas();
+                if (canvas && canvas.style.display !== 'none')
+                    syncRenderCanvasStack(true);
+            };
+            // Style and child-list changes are handled immediately by the
+            // observers below. Keep only a low-frequency fallback for Qt
+            // shadow-root/window replacement instead of scanning at 60 Hz.
+            window.setInterval(maintainRenderCanvasStack, 1000);
+
+            const focusQtSurface = (clientX, clientY) => {
+                const pointedElement = Number.isFinite(clientX) && Number.isFinite(clientY)
+                    ? document.elementFromPoint(clientX, clientY)
+                    : null;
+                const pointedCanvas = pointedElement instanceof HTMLCanvasElement &&
+                    !pointedElement.classList.contains('aya-render-canvas')
+                    ? pointedElement
+                    : null;
+                const rememberedCanvas = window.ayaStudioQtFocusTarget instanceof HTMLCanvasElement &&
+                    screen.contains(window.ayaStudioQtFocusTarget) &&
+                    window.ayaStudioQtFocusTarget.getClientRects().length > 0
+                    ? window.ayaStudioQtFocusTarget
+                    : null;
+                const qtCanvas = pointedCanvas || rememberedCanvas || screen.querySelector('canvas:not(.aya-render-canvas)');
+                const target = qtCanvas || screen;
+                if (!target.hasAttribute('tabindex'))
+                    target.setAttribute('tabindex', '0');
+                target.focus({ preventScroll: true });
+                window.ayaStudioQtFocusTarget = target;
+            };
+            window.ayaStudioFocusQtSurface = focusQtSurface;
+
+            const isInRenderCanvasRect = event => {
+                const activeRenderRect = window.ayaStudioRenderCanvasRect || renderCanvasRect;
+                const activeRenderVisible = window.ayaStudioRenderCanvasRect ? !!window.ayaStudioRenderCanvasRect.visible : false;
+
+                return activeRenderVisible &&
+                    !renderOverlayDisabled &&
+                    event.clientX >= activeRenderRect.x &&
+                    event.clientY >= activeRenderRect.y &&
+                    event.clientX < activeRenderRect.x + activeRenderRect.width &&
+                    event.clientY < activeRenderRect.y + activeRenderRect.height;
+            };
+
+            window.ayaStudioSetRenderCanvasRect = (x, y, width, height, visible) => {
+                const cssWidth = Math.max(1, Math.floor(width));
+                const cssHeight = Math.max(1, Math.floor(height));
+                renderCanvasRect = { x: Math.floor(x), y: Math.floor(y), width: cssWidth, height: cssHeight, visible: !!visible };
+                updateRenderCanvasDisplay();
+            };
+
+            window.ayaStudioSuppressRenderCanvas = (suppressed) => {
+                window.ayaStudioRenderCanvasSuppressed = !!suppressed;
+                updateRenderCanvasDisplay();
+            };
+
+            let renderCanvasStackUpdateQueued = false;
+            renderCanvasStackObserver = new MutationObserver(records => {
+                let hostZIndexChanged = false;
+                const qtStackChanged = records.some(record => {
+                    if (record.type === 'childList') {
+                        observeQtMutationRoots(qtDomRoots());
+                        if (qtRenderHostWindow && !qtRenderHostWindow.isConnected)
+                            qtRenderHostWindow = null;
+                        const changedNodes = [...record.addedNodes, ...record.removedNodes];
+                        return changedNodes.some(node => node instanceof Element &&
+                            (node.matches(qtWindowSelector) || node.querySelector(qtWindowSelector)));
+                    }
+
+                    const element = record.target;
+                    if (!(element instanceof HTMLElement) || element.classList.contains('aya-render-canvas'))
+                        return false;
+
+                    const previousMatch = (record.oldValue || '').match(/(?:^|;)\s*z-index\s*:\s*([^;]+)/i);
+                    const previousZIndex = previousMatch ? Number.parseInt(previousMatch[1], 10) : Number.NaN;
+                    const currentZIndex = qtWindowZIndex(element);
+                    const changed = currentZIndex !== previousZIndex &&
+                        !(Number.isNaN(currentZIndex) && Number.isNaN(previousZIndex));
+                    if (changed && element === qtRenderHostWindow)
+                        hostZIndexChanged = true;
+                    return changed;
+                });
+                if (!qtStackChanged)
+                    return;
+
+                if (hostZIndexChanged) {
+                    updateRenderCanvasDisplay();
+                    return;
+                }
+
+                if (renderCanvasStackUpdateQueued)
+                    return;
+
+                renderCanvasStackUpdateQueued = true;
+                requestAnimationFrame(() => {
+                    renderCanvasStackUpdateQueued = false;
+                    updateRenderCanvasDisplay();
+                });
+            });
+            observeQtMutationRoots(qtDomRoots());
+
+            const resizeRenderCanvas = () => {
+                const canvas = activeRenderCanvas();
+                if (canvas && canvas.style.display !== 'none')
+                    window.dispatchEvent(new Event('aya-studio-render-canvas-resize'));
+            };
+
+            let qtResizeGeneration = 0;
+            let qtResizeTimers = [];
+            let qtContainerResizeCalls = 0;
+            const resizeQtContainer = () => {
+                if (!qtInstance || typeof qtInstance.qtResizeContainerElement !== 'function')
+                    return false;
+
+                try {
+                    qtInstance.qtResizeContainerElement(screen);
+                    ++qtContainerResizeCalls;
+                    return true;
+                } catch (error) {
+                    console.warn('[Aya Studio] Could not resize the Qt container:', error);
+                    return false;
+                }
+            };
+            window.ayaStudioResizeQtContainer = resizeQtContainer;
+            const dispatchQtResize = () => {
+                resizeQtContainer();
+                window.dispatchEvent(new Event('resize'));
+                resizeRenderCanvas();
+            };
+            const forceQtResize = () => {
+                const generation = ++qtResizeGeneration;
+                qtResizeTimers.forEach(timer => clearTimeout(timer));
+                qtResizeTimers = [];
+
+                let remainingFrames = 4;
+                const resizeOnFrame = () => {
+                    if (generation !== qtResizeGeneration)
+                        return;
+                    dispatchQtResize();
+                    if (--remainingFrames > 0)
+                        requestAnimationFrame(resizeOnFrame);
+                };
+                dispatchQtResize();
+                requestAnimationFrame(resizeOnFrame);
+                [50, 150, 350, 750].forEach(delay => {
+                    qtResizeTimers.push(setTimeout(() => {
+                        if (generation === qtResizeGeneration)
+                            dispatchQtResize();
+                    }, delay));
+                });
+            };
+
+            let qtStartupResizeTimer = 0;
+            let qtStartupResizeDeadline = 0;
+            let qtStartupResizeAttempts = 0;
+            let qtStartupStableChecks = 0;
+            const qtMainWindowFillsAppRoot = host => {
+                if (!host || !appRoot)
+                    return false;
+
+                const rootRect = appRoot.getBoundingClientRect();
+                const hostRect = host.getBoundingClientRect();
+                const tolerance = 4;
+                return rootRect.width > 0 && rootRect.height > 0 &&
+                    Math.abs(hostRect.left - rootRect.left) <= tolerance &&
+                    Math.abs(hostRect.top - rootRect.top) <= tolerance &&
+                    Math.abs(hostRect.width - rootRect.width) <= tolerance &&
+                    Math.abs(hostRect.height - rootRect.height) <= tolerance;
+            };
+            const publishQtStartupResizeState = (host, complete) => {
+                const rootRect = appRoot?.getBoundingClientRect();
+                const hostRect = host?.getBoundingClientRect();
+                const content = host?.querySelector('.qt-window');
+                const contentRect = content?.getBoundingClientRect();
+                const canvas = host?.querySelector('canvas.qt-window-canvas');
+                const canvasRect = canvas?.getBoundingClientRect();
+                window.ayaStudioStartupResize = {
+                    complete,
+                    attempts: qtStartupResizeAttempts,
+                    stableChecks: qtStartupStableChecks,
+                    hostId: host?.id || '',
+                    containerApiAvailable: typeof qtInstance?.qtResizeContainerElement === 'function',
+                    containerResizeCalls: qtContainerResizeCalls,
+                    rootSize: rootRect ? [Math.round(rootRect.width), Math.round(rootRect.height)] : [0, 0],
+                    windowSize: hostRect ? [Math.round(hostRect.width), Math.round(hostRect.height)] : [0, 0],
+                    contentSize: contentRect ? [Math.round(contentRect.width), Math.round(contentRect.height)] : [0, 0],
+                    canvasCssSize: canvasRect ? [Math.round(canvasRect.width), Math.round(canvasRect.height)] : [0, 0],
+                    canvasPixelSize: canvas ? [canvas.width, canvas.height] : [0, 0],
+                    widgetGeometry: window.ayaStudioQtWidgetGeometry || null
+                };
+            };
+            const checkQtStartupResize = () => {
+                qtStartupResizeTimer = 0;
+                const host = findQtRenderHostWindow(true);
+                ++qtStartupResizeAttempts;
+
+                if (host)
+                    dispatchQtResize();
+
+                requestAnimationFrame(() => {
+                    const refreshedHost = findQtRenderHostWindow(true);
+                    if (qtMainWindowFillsAppRoot(refreshedHost))
+                        ++qtStartupStableChecks;
+                    else
+                        qtStartupStableChecks = 0;
+
+                    const complete = qtStartupStableChecks >= 3;
+                    publishQtStartupResizeState(refreshedHost, complete);
+                    if (complete || performance.now() >= qtStartupResizeDeadline)
+                        return;
+
+                    qtStartupResizeTimer = setTimeout(checkQtStartupResize, refreshedHost ? 100 : 50);
+                });
+            };
+            const startQtStartupResizeWatch = () => {
+                if (qtStartupResizeTimer)
+                    clearTimeout(qtStartupResizeTimer);
+                qtStartupResizeDeadline = performance.now() + 30000;
+                qtStartupResizeAttempts = 0;
+                qtStartupStableChecks = 0;
+                checkQtStartupResize();
+            };
+            window.ayaStudioRetryStartupResize = startQtStartupResizeWatch;
+
+            window.addEventListener('resize', resizeRenderCanvas);
+            window.addEventListener('orientationchange', forceQtResize);
+            window.visualViewport?.addEventListener('resize', forceQtResize);
+            if (window.ResizeObserver && appRoot) {
+                let previousRootSize = '';
+                new ResizeObserver(entries => {
+                    const rect = entries[0]?.contentRect;
+                    if (!rect)
+                        return;
+
+                    const rootSize = `${Math.round(rect.width)}x${Math.round(rect.height)}`;
+                    if (rootSize === previousRootSize)
+                        return;
+                    previousRootSize = rootSize;
+                    forceQtResize();
+                }).observe(appRoot);
+            }
+            document.addEventListener('pointerdown', unlockAudio, true);
+            document.addEventListener('keydown', unlockAudio, true);
+            window.ayaStudioPointerLockReleaseTime = Number.NEGATIVE_INFINITY;
+
+            const pointerLockController = (() => {
+                let phase = 'idle';
+                let generation = 0;
+                let requestPending = false;
+                let rightDown = false;
+                let engineLock = false;
+
+                const active = () => {
+                    const element = document.pointerLockElement;
+                    return !!element && (element === screen || screen.contains(element));
+                };
+                const desired = () => rightDown || engineLock;
+                const publish = () => {
+                    window.ayaStudioPointerLockWanted = desired();
+                    window.ayaStudioPointerLockRequestPending = requestPending;
+                    window.ayaStudioEnginePointerLock = engineLock;
+                    window.ayaStudioRightButtonDown = rightDown;
+                    window.ayaStudioPointerLockState = {
+                        phase, generation, requestPending, rightDown, engineLock, active: active()
+                    };
+                };
+                const settleRequest = token => {
+                    if (token !== generation)
+                        return;
+                    requestPending = false;
+                    phase = active() ? 'locked' : 'idle';
+                    publish();
+                };
+                const request = fromGesture => {
+                    if (!screen.requestPointerLock || !desired())
+                        return false;
+
+                    if (active()) {
+                        ++generation;
+                        requestPending = false;
+                        phase = 'locked';
+                        publish();
+                        return true;
+                    }
+                    if (requestPending && !fromGesture)
+                        return true;
+                    if (requestPending) {
+                        ++generation;
+                        requestPending = false;
+                    }
+
+                    const token = ++generation;
+                    requestPending = true;
+                    phase = 'requesting';
+                    publish();
+                    try {
+                        const result = screen.requestPointerLock();
+                        if (result && typeof result.then === 'function')
+                            result.then(() => settleRequest(token)).catch(() => settleRequest(token));
+                    } catch (error) {
+                        settleRequest(token);
+                        return false;
+                    }
+
+                    setTimeout(() => settleRequest(token), fromGesture ? 500 : 1000);
+                    return true;
+                };
+                const exit = force => {
+                    if (!force && desired())
+                        return false;
+
+                    const token = ++generation;
+                    requestPending = false;
+                    if (!active()) {
+                        phase = 'idle';
+                        publish();
+                        return true;
+                    }
+
+                    phase = 'releasing';
+                    publish();
+                    const attempt = retry => {
+                        if (token !== generation || (!force && desired()))
+                            return;
+                        if (!active()) {
+                            phase = 'idle';
+                            publish();
+                            return;
+                        }
+                        try {
+                            const result = document.exitPointerLock();
+                            if (result && typeof result.catch === 'function')
+                                result.catch(() => {});
+                        } catch (error) {
+                        }
+                        if (!retry)
+                            setTimeout(() => attempt(true), 100);
+                    };
+
+                    // Leave the current pointer event first, while still
+                    // allowing a re-press in the same event turn to cancel.
+                    setTimeout(() => attempt(false), 0);
+                    return true;
+                };
+                const setRightDown = (value, fromGesture = false) => {
+                    const nextRightDown = !!value;
+                    const changed = rightDown !== nextRightDown;
+                    rightDown = nextRightDown;
+                    if (changed && !rightDown)
+                        window.ayaStudioPointerLockReleaseTime = performance.now();
+                    publish();
+                    if (rightDown) {
+                        if (active() || requestPending)
+                            return true;
+                        return request(fromGesture);
+                    }
+
+                    if (changed || active() || requestPending)
+                        return exit(false);
+                    return true;
+                };
+                const setEngineLock = value => {
+                    engineLock = !!value;
+                    publish();
+                    if (engineLock)
+                        request(false);
+                    else
+                        exit(false);
+                };
+                const pointerLockChanged = () => {
+                    ++generation;
+                    requestPending = false;
+                    if (active()) {
+                        phase = 'locked';
+                        publish();
+                        if (!desired())
+                            exit(false);
+                        return;
+                    }
+
+                    phase = 'idle';
+                    publish();
+                    requestAnimationFrame(() => focusQtSurface());
+                };
+                const pointerLockFailed = () => {
+                    ++generation;
+                    requestPending = false;
+                    phase = active() ? 'locked' : 'idle';
+                    publish();
+                };
+                const forceExit = () => {
+                    rightDown = false;
+                    publish();
+                    exit(true);
+                };
+
+                publish();
+                return { active, desired, request, exit, forceExit, pointerLockChanged, pointerLockFailed, setEngineLock, setRightDown };
+            })();
+
+            window.ayaStudioRequestPointerLock = fromGesture => pointerLockController.request(!!fromGesture);
+            window.ayaStudioExitPointerLock = () => pointerLockController.exit(false);
+            window.ayaStudioSetEnginePointerLock = enabled => pointerLockController.setEngineLock(!!enabled);
+            window.ayaStudioSetRightButtonDown = (down, fromGesture = false) =>
+                pointerLockController.setRightDown(!!down, !!fromGesture);
+
+            const releaseStudioFileSystem = instance => {
+                const fs = instance?.FS;
+                if (!fs)
+                    return;
+
+                const visited = new Set();
+                const releaseNode = node => {
+                    if (!node || visited.has(node))
+                        return;
+                    visited.add(node);
+
+                    if (fs.isDir?.(node.mode) && node.contents) {
+                        for (const child of Object.values(node.contents))
+                            releaseNode(child);
+                    }
+
+                    // Preloaded files are subarray views into Aya.Studio.data.
+                    // Dropping every view makes the package buffer collectible
+                    // without waiting for the complete Wasm module graph.
+                    node.contents = null;
+                    if ('usedBytes' in node)
+                        node.usedBytes = 0;
+                };
+
+                try {
+                    for (const mount of fs.mounts || [])
+                        releaseNode(mount?.root);
+                    releaseNode(fs.root);
+                } catch (error) {
+                    console.warn('[Aya Studio] Could not release the virtual filesystem:', error);
+                }
+
+                fs.streams = [];
+                fs.mounts = [];
+                fs.nameTable = null;
+                fs.root = null;
+                instance.dataFileDownloads = null;
+                instance.preloadResults = null;
+            };
+
+            const releaseStudioGraphics = () => {
+                for (const canvas of screen.querySelectorAll(':scope > .aya-render-canvas')) {
+                    try {
+                        const context = canvas.getContext('webgl2') || canvas.getContext('webgl');
+                        context?.getExtension('WEBGL_lose_context')?.loseContext();
+                    } catch (error) {
+                    }
+                }
+            };
+
+            const releaseStudioRuntime = () => {
+                if (pageShuttingDown)
+                    return;
+                pageShuttingDown = true;
+                const instance = qtInstance;
+
+                try {
+                    sessionStorage.setItem(ayaStudioLastPageHideKey, String(Date.now()));
+                } catch (error) {
+                }
+
+                try {
+                    pointerLockController.forceExit();
+                } catch (error) {
+                }
+
+                try {
+                    instance?.JSEvents?.removeAllEventListeners();
+                } catch (error) {
+                    console.warn('[Aya Studio] Could not remove Emscripten event handlers during page shutdown:', error);
+                }
+
+                try {
+                    instance?.PThread?.terminateAllThreads();
+                } catch (error) {
+                    console.warn('[Aya Studio] Could not terminate the pthread pool during page shutdown:', error);
+                }
+
+                try {
+                    instance?._aya_studio_wasm_force_exit?.();
+                } catch (error) {
+                    // emscripten_force_exit ends by throwing ExitStatus.
+                }
+
+                releaseStudioGraphics();
+                releaseStudioFileSystem(instance);
+
+                try {
+                    const audioContext = window.ayaStudioAudioContext;
+                    if (audioContext && audioContext.state !== 'closed')
+                        audioContext.close().catch(() => {});
+                } catch (error) {
+                }
+
+                window.ayaStudioAudioContext = null;
+                window.ayaStudioQtRenderHostWindow = null;
+                window.ayaStudioQtFocusTarget = null;
+                qtInstance = null;
+                screen.replaceChildren();
+            };
+            window.addEventListener('pagehide', releaseStudioRuntime, { capture: true });
+            window.addEventListener('pageshow', event => {
+                if (event.persisted)
+                    window.location.reload();
+            });
+
+            let pointerLockAnchorSerial = 0;
+            const capturePointerLockAnchor = event => {
+                const rect = window.ayaStudioRenderCanvasRect || renderCanvasRect;
+                const width = Math.max(1, Math.floor(rect.width));
+                const height = Math.max(1, Math.floor(rect.height));
+                window.ayaStudioPointerLockAnchor = {
+                    clientX: event.clientX,
+                    clientY: event.clientY,
+                    localX: Math.max(0, Math.min(width - 1, Math.floor(event.clientX - rect.x))),
+                    localY: Math.max(0, Math.min(height - 1, Math.floor(event.clientY - rect.y))),
+                    width,
+                    height,
+                    serial: ++pointerLockAnchorSerial
+                };
+            };
+            const beginPointerGesture = event => {
+                if (!isInRenderCanvasRect(event))
+                    return;
+
+                if (event.button === 2) {
+                    capturePointerLockAnchor(event);
+                    pointerLockController.setRightDown(true, true);
+                } else if (event.pointerType !== 'touch' && pointerLockController.desired() && !pointerLockController.active()) {
+                    pointerLockController.request(true);
+                }
+                focusQtSurface(event.clientX, event.clientY);
+            };
+            document.addEventListener(window.PointerEvent ? 'pointerdown' : 'mousedown', beginPointerGesture, true);
+
+            document.addEventListener('contextmenu', event => {
+                if (isInRenderCanvasRect(event))
+                    event.preventDefault();
+            }, true);
+
+            document.addEventListener(window.PointerEvent ? 'pointerup' : 'mouseup', event => {
+                if (event.button === 2)
+                    pointerLockController.setRightDown(false);
+            }, true);
+            document.addEventListener('pointerlockchange', pointerLockController.pointerLockChanged, true);
+            document.addEventListener('pointerlockerror', pointerLockController.pointerLockFailed, true);
+            window.addEventListener('blur', pointerLockController.forceExit);
+
+            const showUi = (ui) => {
+                const showScreen = screen === ui;
+                screen.style.position = 'absolute';
+                screen.style.display = 'block';
+                screen.style.visibility = showScreen ? 'visible' : 'hidden';
+                screen.style.pointerEvents = showScreen ? 'auto' : 'none';
+                spinner.style.display = showScreen ? 'none' : 'grid';
+                updateRenderCanvasDisplay();
+                if (showScreen) {
+                    forceQtResize();
+                    resizeRenderCanvas();
+                }
+            };
+
+            try {
+                showUi(spinner);
+                progress.style.display = 'block';
+                ayaStudioRenderDownloadProgress();
+
+                const navigationEntry = performance.getEntriesByType('navigation')[0];
+                if (navigationEntry?.type === 'reload') {
+                    let pageHideTime = 0;
+                    try {
+                        pageHideTime = Number.parseInt(
+                            sessionStorage.getItem(ayaStudioLastPageHideKey) || '0', 10) || 0;
+                        sessionStorage.removeItem(ayaStudioLastPageHideKey);
+                    } catch (error) {
+                    }
+
+                    const elapsed = pageHideTime > 0 ? Math.max(0, Date.now() - pageHideTime) : 0;
+                    const releaseDelay = Math.max(250, ayaStudioReloadReleaseDelayMs - elapsed);
+                    status.textContent = 'Releasing the previous Studio instance...';
+                    await new Promise(resolve => setTimeout(resolve, releaseDelay));
+                    if (pageShuttingDown)
+                        return;
+                }
+
+                try {
+                    await ayaStudioPruneRuntimeCaches();
+                    if (pageShuttingDown)
+                        return;
+                } catch (error) {
+                    console.warn('[Aya Studio] Could not prune old runtime caches:', error);
+                }
+
+                const runtimeCache = await ayaStudioRuntimeCache();
+                if (pageShuttingDown)
+                    return;
+                const wasmResponsePromise = ayaStudioCachedFetch(ayaStudioAsset('Aya.Studio.wasm'));
+                const wasmModulePromise = wasmResponsePromise.then(ayaStudioCompileWasm);
+                if (runtimeCache) {
+                    await ayaStudioPrimeDataFile();
+                    if (pageShuttingDown)
+                        return;
+                }
+
+                await qtLoad({
+                    locateFile: filename => ayaStudioAsset(filename),
+                    qt: {
+                        onLoaded: () => {
+                            showUi(screen);
+                            startQtStartupResizeWatch();
+                        },
+                        onExit: exitData =>
+                        {
+                            if (pageShuttingDown)
+                                return;
+                            let message = 'Application exit';
+                            message += exitData.code !== undefined ? ` with code ${exitData.code}` : '';
+                            message += exitData.text !== undefined ? ` (${exitData.text})` : '';
+                            status.textContent = message;
+                            progress.style.display = 'none';
+                            showUi(spinner);
+                        },
+                        entryFunction: config => {
+                            if (pageShuttingDown)
+                                return Promise.reject(new Error('Page shutdown'));
+
+                            return Promise.resolve(window.Studio_entry(config)).then(instance => {
+                                if (pageShuttingDown) {
+                                    instance?.PThread?.terminateAllThreads();
+                                    throw new Error('Page shutdown');
+                                }
+                                qtInstance = instance;
+                                installAsyncifyDiagnostics(instance);
+                                return instance;
+                            });
+                        },
+                        containerElements: [screen],
+                        module: wasmModulePromise,
+                    }
+                });
+            } catch (e) {
+                if (pageShuttingDown)
+                    return;
+                console.error(e);
+                console.error(e.stack);
+                status.textContent = `Application failed to load: ${e.message || e}`;
+                progress.style.display = 'none';
+                showUi(spinner);
+            }
+        }
+    </script>
+    <script>
+        document.write(`<script src="${ayaStudioAsset('Aya.Diagnostics.js')}"><\/script>`);
+        document.write(`<script src="${ayaStudioAsset('Aya.Studio.js')}"><\/script>`);
+        document.write(`<script src="${ayaStudioAsset('qtloader.js')}"><\/script>`);
+    </script>
+  </body>
+</html>

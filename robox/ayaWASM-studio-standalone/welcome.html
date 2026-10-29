@@ -1,0 +1,1797 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Aya Studio</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f6f8;
+        color: #20252b;
+        --surface: #ffffff;
+        --surface-muted: #f4f6f8;
+        --surface-strong: #e9edf1;
+        --line: #d7dde3;
+        --line-strong: #bdc7d0;
+        --text: #20252b;
+        --text-muted: #5d6873;
+        --text-faint: #77828d;
+        --accent: #237a61;
+        --accent-hover: #1b674f;
+        --accent-soft: #e1f0ea;
+        --blue: #315f9d;
+        --warning: #9a642d;
+        --danger: #a33d3d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+      }
+
+      body {
+        background: var(--surface-muted);
+        color: var(--text);
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      button {
+        letter-spacing: 0;
+      }
+
+      .topbar {
+        position: sticky;
+        z-index: 10;
+        top: 0;
+        display: grid;
+        grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+        min-height: 62px;
+        align-items: center;
+        padding: 0 30px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .brand {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 10px;
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .brand img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+      }
+
+      .brand strong {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .tabs {
+        display: flex;
+        height: 100%;
+        align-items: stretch;
+        gap: 4px;
+      }
+
+      .tab {
+        position: relative;
+        min-width: 74px;
+        padding: 0 16px;
+        border: 0;
+        background: transparent;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .tab::after {
+        position: absolute;
+        right: 15px;
+        bottom: 0;
+        left: 15px;
+        height: 3px;
+        background: transparent;
+        content: "";
+      }
+
+      .tab:hover {
+        color: var(--text);
+        background: #f7f9fa;
+      }
+
+      .tab[aria-selected="true"] {
+        color: var(--accent);
+      }
+
+      .tab[aria-selected="true"]::after {
+        background: var(--accent);
+      }
+
+      .edition {
+        justify-self: end;
+        color: var(--text-faint);
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .edition:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      .tab:focus-visible,
+      .button:focus-visible,
+      .version-option input:focus-visible + span,
+      .drop-zone:focus-visible {
+        outline: 3px solid rgba(49, 95, 157, 0.25);
+        outline-offset: 2px;
+      }
+
+      .page {
+        width: min(1080px, 100%);
+        margin: 0 auto;
+        padding: 42px 48px 58px;
+      }
+
+      .panel[hidden] {
+        display: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 740px;
+        margin-bottom: 16px;
+        font-size: 42px;
+        font-weight: 650;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: 650;
+        line-height: 1.3;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin-bottom: 7px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .eyebrow {
+        margin-bottom: 10px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        max-width: 720px;
+        margin-bottom: 0;
+        color: var(--text-muted);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .button {
+        min-height: 40px;
+        padding: 9px 17px;
+        border: 1px solid var(--line-strong);
+        border-radius: 5px;
+        background: var(--surface);
+        color: var(--text);
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .button:hover {
+        border-color: #8f9ba7;
+        background: #f7f9fa;
+      }
+
+      .button.primary {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .button.primary:hover {
+        border-color: var(--accent-hover);
+        background: var(--accent-hover);
+      }
+
+      .button:disabled {
+        border-color: var(--line);
+        background: var(--surface-strong);
+        color: var(--text-faint);
+        cursor: wait;
+      }
+
+      .home-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(230px, 0.65fr);
+        min-height: 286px;
+        align-items: center;
+        gap: 52px;
+        padding: 22px 0 44px;
+      }
+
+      .hero-mark {
+        display: grid;
+        place-items: center;
+        justify-self: end;
+        width: min(220px, 100%);
+        aspect-ratio: 1;
+        border-left: 1px solid var(--line);
+      }
+
+      .hero-mark img {
+        width: 132px;
+        height: 132px;
+        object-fit: contain;
+      }
+
+      .section {
+        display: grid;
+        grid-template-columns: minmax(150px, 0.55fr) minmax(0, 1.8fr);
+        gap: 40px;
+        padding: 32px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section > h2 {
+        margin-bottom: 0;
+        color: #30363d;
+        font-size: 16px;
+      }
+
+      .section-copy > p {
+        margin-bottom: 15px;
+        color: var(--text-muted);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .section-copy > p:last-child {
+        margin-bottom: 0;
+      }
+
+      .capabilities {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 22px;
+      }
+
+      .capability {
+        min-width: 0;
+        padding-top: 14px;
+        border-top: 3px solid var(--accent);
+      }
+
+      .capability:nth-child(2) {
+        border-color: var(--blue);
+      }
+
+      .capability:nth-child(3) {
+        border-color: var(--warning);
+      }
+
+      .capability p {
+        margin-bottom: 0;
+        color: var(--text-muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .games-header,
+      .about-header {
+        padding: 30px 0 34px;
+      }
+
+      .games-header h1,
+      .about-header h1 {
+        font-size: 34px;
+      }
+
+      .open-layout {
+        padding-top: 28px;
+        border-top: 1px solid var(--line);
+      }
+
+      .open-main {
+        min-width: 0;
+      }
+
+      .catalog-section {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .catalog-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      .catalog-heading h2 {
+        margin-bottom: 0;
+        font-size: 17px;
+      }
+
+      .catalog-heading span {
+        color: var(--text-faint);
+        font-size: 12px;
+      }
+
+      .game-list {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--surface);
+      }
+
+      .game-entry {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        min-height: 70px;
+        align-items: center;
+        gap: 16px;
+        padding: 13px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .game-entry:last-child {
+        border-bottom: 0;
+      }
+
+      .game-entry-copy {
+        min-width: 0;
+      }
+
+      .game-entry-copy strong {
+        display: block;
+        overflow: hidden;
+        margin-bottom: 5px;
+        font-size: 14px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .game-entry-copy span {
+        display: block;
+        overflow: hidden;
+        color: var(--text-faint);
+        font: 11px/1.4 Consolas, "Liberation Mono", monospace;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .version-badge {
+        min-width: 46px;
+        padding: 5px 8px;
+        border: 1px solid #a9c5ba;
+        border-radius: 4px;
+        background: var(--accent-soft);
+        color: #175b45;
+        font-size: 11px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .game-entry .button {
+        min-height: 34px;
+        padding: 6px 13px;
+      }
+
+      .catalog-empty {
+        margin: 0;
+        padding: 18px;
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      .control-label {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .version-control {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        margin-bottom: 18px;
+        border: 1px solid var(--line-strong);
+        border-radius: 5px;
+        background: var(--line);
+      }
+
+      .version-option {
+        min-width: 0;
+        background: var(--surface);
+        cursor: pointer;
+      }
+
+      .version-option input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      .version-option span {
+        display: grid;
+        min-height: 39px;
+        place-items: center;
+        color: var(--text-muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .version-option:hover span {
+        background: #f4f7f8;
+        color: var(--text);
+      }
+
+      .version-option input:checked + span {
+        background: var(--accent-soft);
+        color: #175b45;
+      }
+
+      .drop-zone {
+        display: grid;
+        min-height: 190px;
+        place-items: center;
+        padding: 30px;
+        border: 1px dashed #9ba8b4;
+        border-radius: 6px;
+        background: var(--surface);
+        text-align: center;
+        transition: border-color 120ms ease, background-color 120ms ease;
+      }
+
+      .drop-zone.dragging {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .drop-zone.busy {
+        opacity: 0.72;
+        pointer-events: none;
+      }
+
+      .drop-zone h2 {
+        margin-bottom: 7px;
+        font-size: 17px;
+      }
+
+      .drop-zone p {
+        margin-bottom: 18px;
+        color: var(--text-muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .file-note {
+        margin: 10px 0 0;
+        color: var(--text-faint);
+        font-size: 12px;
+      }
+
+      .open-side {
+        min-width: 0;
+        padding-left: 28px;
+        border-left: 1px solid var(--line);
+      }
+
+      .status {
+        min-height: 98px;
+        margin-bottom: 28px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--surface);
+      }
+
+      .status[data-state="working"] {
+        border-color: #a9c5ba;
+        background: #f1f8f5;
+      }
+
+      .status[data-state="error"] {
+        border-color: #d5abab;
+        background: #fff6f6;
+      }
+
+      .status strong {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 13px;
+      }
+
+      .status span {
+        display: block;
+        overflow-wrap: anywhere;
+        color: var(--text-muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .api-block {
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+      }
+
+      .api-block p {
+        color: var(--text-muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .convert-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 260px;
+        gap: 28px;
+      }
+
+      #play-place-candidate:not([hidden]) {
+        display: block;
+        width: 100%;
+        min-height: 40px;
+        padding: 8px 10px;
+        border: 1px solid var(--line-strong);
+        border-radius: 5px;
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      .asset-table-wrap {
+        max-width: 100%;
+        overflow: auto;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        background: var(--surface);
+      }
+
+      .asset-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+        text-align: left;
+      }
+
+      .asset-table th,
+      .asset-table td {
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+
+      .asset-table th {
+        position: sticky;
+        top: 0;
+        background: var(--surface-strong);
+        white-space: nowrap;
+      }
+
+      .asset-table td {
+        max-width: 260px;
+        overflow-wrap: anywhere;
+      }
+
+      .asset-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .asset-result[data-state="failed"] {
+        color: var(--danger);
+      }
+
+      .asset-result[data-state="saved"] {
+        color: var(--accent);
+      }
+
+      pre {
+        max-width: 100%;
+        overflow-x: auto;
+        margin: 12px 0 0;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        background: #262c33;
+        color: #eef2f5;
+        font: 12px/1.55 Consolas, "Liberation Mono", monospace;
+        white-space: pre;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: 6px;
+        border: 1px solid var(--line);
+        background: var(--line);
+      }
+
+      .about-item {
+        min-height: 138px;
+        padding: 22px;
+        background: var(--surface);
+      }
+
+      .about-item p {
+        margin-bottom: 0;
+        color: var(--text-muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      footer {
+        margin-top: 38px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--text-faint);
+        font-size: 12px;
+      }
+
+      @media (max-width: 780px) {
+        .topbar {
+          grid-template-columns: 1fr auto;
+          padding: 0 20px;
+        }
+
+        .tabs {
+          grid-column: 1 / -1;
+          grid-row: 2;
+          height: 44px;
+          justify-content: center;
+          border-top: 1px solid var(--line);
+        }
+
+        .edition {
+          grid-column: 2;
+        }
+
+        .tab {
+          min-width: 68px;
+        }
+
+        .page {
+          padding: 30px 24px 44px;
+        }
+
+        .home-hero {
+          grid-template-columns: 1fr;
+          min-height: 0;
+          gap: 26px;
+        }
+
+        .hero-mark {
+          display: none;
+        }
+
+        h1 {
+          font-size: 34px;
+        }
+
+        .section,
+        .open-layout {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .section {
+          padding: 27px 0;
+        }
+
+        .open-side {
+          padding: 26px 0 0;
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .brand strong,
+        .edition {
+          display: none;
+        }
+
+        .topbar {
+          grid-template-columns: 1fr;
+          min-height: 52px;
+          padding: 0 14px;
+        }
+
+        .brand {
+          position: absolute;
+          top: 9px;
+          left: 14px;
+        }
+
+        .tabs {
+          grid-column: 1;
+          grid-row: 1;
+          height: 52px;
+          padding-left: 44px;
+          border-top: 0;
+        }
+
+        .tab {
+          min-width: 62px;
+          padding: 0 10px;
+          font-size: 13px;
+        }
+
+        .page {
+          padding: 24px 18px 34px;
+        }
+
+        h1,
+        .games-header h1,
+        .about-header h1 {
+          font-size: 28px;
+        }
+
+        .lede {
+          font-size: 14px;
+        }
+
+        .capabilities,
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .version-control {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .game-entry {
+          grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .game-entry .version-badge {
+          display: none;
+        }
+
+        .drop-zone {
+          min-height: 170px;
+          padding: 24px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" data-tab-link="home" aria-label="Aya Studio home">
+        <img src="aya-studio.png" alt="">
+        <strong>Aya Studio</strong>
+      </a>
+
+      <nav class="tabs" role="tablist" aria-label="Welcome pages">
+        <button class="tab" id="tab-home" type="button" role="tab" aria-selected="true" aria-controls="panel-home" tabindex="0" data-tab="home">Home</button>
+        <button class="tab" id="tab-games" type="button" role="tab" aria-selected="false" aria-controls="panel-games" tabindex="-1" data-tab="games">Studio</button>
+        <button class="tab" id="tab-play" type="button" role="tab" aria-selected="false" aria-controls="panel-play" tabindex="-1" data-tab="play">Play</button>
+        <button class="tab" id="tab-convert" type="button" role="tab" aria-selected="false" aria-controls="panel-convert" tabindex="-1" data-tab="convert">Convert</button>
+        <button class="tab" id="tab-about" type="button" role="tab" aria-selected="false" aria-controls="panel-about" tabindex="-1" data-tab="about">About</button>
+      </nav>
+
+      <a class="edition" href="/index.html" target="_blank" rel="noopener">Launch Studio</a>
+    </header>
+
+    <main class="page">
+      <section class="panel" id="panel-home" role="tabpanel" aria-labelledby="tab-home" data-panel="home">
+        <div class="home-hero">
+          <div>
+            <p class="eyebrow">Roblox Studio, running on the web</p>
+            <h1>Build and test places directly in your browser.</h1>
+            <p class="lede">bringing the Early 2016 Studio to WebAssembly, with local place files, Lua scripting, rendering, physics, audio, and play testing in one workspace.</p>
+            <div class="button-row">
+              <button class="button primary" type="button" data-open-games>Open a local place</button>
+              <button class="button" type="button" data-tab-link="about">Learn about Aya</button>
+            </div>
+          </div>
+          <div class="hero-mark" aria-hidden="true">
+            <img src="aya-studio.png" alt="">
+          </div>
+        </div>
+
+        <section class="section">
+          <h2>Inside Studio</h2>
+          <div class="section-copy">
+            <p>Use the familiar hierarchy, property editor, script tools, terrain and modeling controls, diagnostics, and integrated play test without installing a native client.</p>
+            <div class="capabilities">
+              <div class="capability">
+                <h3>Build</h3>
+                <p>Create parts, models, terrain, lighting, and reusable place content.</p>
+              </div>
+              <div class="capability">
+                <h3>Script</h3>
+                <p>Run Lua against the same DataModel used by the game simulation.</p>
+              </div>
+              <div class="capability">
+                <h3>Test</h3>
+                <p>Play with rendering, physics, CoreScripts, input, networking, and sound.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Local workflow</h2>
+          <div class="section-copy">
+            <p>Open an existing <strong>.rbxl</strong> or <strong>.rbxlx</strong> file, edit and test it in Studio, then save the updated place back to your computer. Your local file is staged only inside the browser runtime.</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel" id="panel-games" role="tabpanel" aria-labelledby="tab-games" data-panel="games" hidden>
+        <header class="games-header">
+          <p class="eyebrow">Local play</p>
+          <h1>Open a place.</h1>
+        </header>
+
+        <div class="open-layout">
+          <div class="open-main">
+            <section class="catalog-section" aria-labelledby="catalog-title">
+              <div class="catalog-heading">
+                <h2 id="catalog-title">Choose a place file</h2>
+                <span>Loaded locally in your browser</span>
+              </div>
+            </section>
+
+            <span class="control-label" id="version-label">Target virtual version</span>
+            <div class="version-control" role="radiogroup" aria-labelledby="version-label">
+              <label class="version-option">
+                <input type="radio" name="virtual-version" value="2016" checked>
+                <span>2016</span>
+              </label>
+              <label class="version-option">
+                <input type="radio" name="virtual-version" value="2015">
+                <span>2015</span>
+              </label>
+              <label class="version-option">
+                <input type="radio" name="virtual-version" value="2014">
+                <span>2014</span>
+              </label>
+              <label class="version-option">
+                <input type="radio" name="virtual-version" value="2013">
+                <span>2013</span>
+              </label>
+              <label class="version-option">
+                <input type="radio" name="virtual-version" value="2012">
+                <span>2012</span>
+              </label>
+            </div>
+
+            <div class="drop-zone" id="place-drop-zone" role="button" tabindex="0" aria-describedby="file-note">
+              <div>
+                <h2>Drop a place here</h2>
+                <p>or choose one from your computer</p>
+                <button class="button primary" id="choose-place" type="button">Choose place</button>
+              </div>
+            </div>
+            <p class="file-note" id="file-note">Supported formats: .rbxl and .rbxlx. For local asset overrides, put files named &lt;asset-id&gt;.&lt;extension&gt; in an <code>InterceptAssets</code> folder beside the server or inside a game folder under <code>game/games</code>. Restart the server after adding assets.</p>
+          </div>
+
+          <aside class="open-side">
+            <div class="status" id="open-status" data-state="idle" role="status" aria-live="polite">
+              <strong>Ready to open</strong>
+              <span>Select a version and a local place file.</span>
+            </div>
+
+            <div class="api-block">
+              <h3>Play test</h3>
+              <p>After the place opens, use Studio's Play Solo control to test it with the default character.</p>
+            </div>
+            <div class="api-block">
+              <h3>Offline asset mode</h3>
+              <p>Start the local server with <code>AYA_ONLINE_ASSETS=0</code> to prevent Roblox asset fallback. Requests are served only from <code>InterceptAssets</code>; assets not included there will be unavailable.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-play" role="tabpanel" aria-labelledby="tab-play" data-panel="play" hidden>
+        <header class="games-header">
+          <p class="eyebrow">Local package</p>
+          <h1>Load a place or ZIP.</h1>
+          <p class="lede">Choose an .rbxl/.rbxlx file or a ZIP containing a place and an optional InterceptAssets folder. ZIP assets are installed locally before the place opens.</p>
+        </header>
+
+        <div class="open-layout convert-layout">
+          <div class="open-main">
+            <label class="control-label" for="play-place-file">Place or ZIP file</label>
+            <input id="play-place-file" type="file" accept=".rbxl,.rbxlx,.zip,application/zip,application/octet-stream">
+            <p class="file-note">ZIP uploads use 1 MiB chunks. The archive must contain at least one .rbxl or .rbxlx file. Assets directly inside any InterceptAssets folder are installed under game/games/&lt;zip-name&gt;/InterceptAssets.</p>
+            <label class="control-label" for="play-place-candidate" id="play-place-candidate-label" hidden>Place in ZIP</label>
+            <select id="play-place-candidate" hidden disabled aria-labelledby="play-place-candidate-label"></select>
+            <div class="button-row">
+              <button class="button primary" id="play-place-button" type="button" disabled>Load place</button>
+            </div>
+          </div>
+
+          <aside class="open-side">
+            <div class="status" id="play-status" data-state="idle" role="status" aria-live="polite">
+              <strong>Ready to load</strong>
+              <span>Select a local place or ZIP package.</span>
+            </div>
+            <div class="api-block">
+              <h3>Gameplay mode</h3>
+              <p>This build does not expose a standalone player launch command yet. The place opens in Aya Studio; use its Play Solo control to start gameplay.</p>
+            </div>
+            <div class="api-block">
+              <h3>Offline assets</h3>
+              <p>ZIP assets are copied to the local game folder and registered with the asset proxy before the place opens. Use <code>AYA_ONLINE_ASSETS=0</code> to disable Roblox fallback.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-convert" role="tabpanel" aria-labelledby="tab-convert" data-panel="convert" hidden>
+        <header class="games-header">
+          <p class="eyebrow">Offline asset collection</p>
+          <h1>Prepare a place.</h1>
+          <p class="lede">Convert a binary or XML place to scan its assets, collect accessible references into a local InterceptAssets folder, and download a ZIP with the place and report.</p>
+        </header>
+
+        <div class="open-layout convert-layout">
+          <div class="open-main">
+            <label class="control-label" for="convert-place-file">Place file</label>
+            <input id="convert-place-file" type="file" accept=".rbxl,.rbxlx,application/octet-stream,application/xml,text/xml">
+            <p class="file-note">Binary .rbxl files are converted to XML with the local rbx-dom helper; build it once using the setup instructions. Literal asset IDs in supported properties and scripts are scanned; dynamically assembled IDs are not.</p>
+            <div class="button-row">
+              <button class="button primary" id="scan-place" type="button" disabled>Scan place</button>
+              <button class="button" id="collect-assets" type="button" disabled>Download assets and package ZIP</button>
+            </div>
+            <div class="status" id="convert-status" data-state="idle" role="status" aria-live="polite">
+              <strong>Ready to scan</strong>
+              <span>Select a .rbxl or .rbxlx file. Binary conversion is local; downloading missing assets requires internet access.</span>
+            </div>
+            <section id="asset-results" hidden aria-labelledby="asset-results-title">
+              <h2 id="asset-results-title">Referenced assets</h2>
+              <p id="asset-count" class="file-note"></p>
+              <div class="asset-table-wrap">
+                <table class="asset-table">
+                  <thead><tr><th>Asset ID</th><th>Type</th><th>Instance</th><th>Property</th><th>Result</th></tr></thead>
+                  <tbody id="asset-results-body"></tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+
+          <aside class="open-side">
+            <div class="api-block">
+              <h3>What gets included</h3>
+              <p>The ZIP contains the selected place, downloaded assets, an asset manifest, and an error report. Assets that return 401/403 or otherwise fail are listed with their ID, type, and requesting instance path.</p>
+            </div>
+            <div class="api-block">
+              <h3>Offline use</h3>
+              <p>Extract the ZIP under <code>game/games</code>. Aya’s server checks the matching <code>InterceptAssets</code> folder before Roblox. IDs that could not be collected still need replacement or online access.</p>
+            </div>
+            <div class="api-block">
+              <h3>Privacy and limits</h3>
+              <p>Only publicly accessible assets are downloaded; no account cookies are requested. The scanner can’t evaluate runtime-generated IDs. Binary conversion uses the locally built rbx-dom helper.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-panel="about" hidden>
+        <header class="about-header">
+          <p class="eyebrow">About the project</p>
+          <h1>A port of the Aya engine to Webassembly.</h1>
+          <p class="lede">Aya is a robust, customizable, and otherwise heavily modified fork of the
+    Roblox client codebase which was leaked to the public internet around March
+    2016.</p>
+        </header>
+
+        <section class="section">
+          <h2>What it includes</h2>
+          <div class="section-copy">
+            <div class="about-grid">
+              <div class="about-item">
+                <h3>Engine and DataModel</h3>
+                <p>The instance hierarchy, Lua VM, physics, scene graph, serialization, and compatibility behavior run as native WebAssembly code.</p>
+              </div>
+              <div class="about-item">
+                <h3>Studio tools</h3>
+                <p>Qt provides the ribbon, Explorer, Properties, script editor, output, diagnostics, and document workflow.</p>
+              </div>
+              <div class="about-item">
+                <h3>Browser platform</h3>
+                <p>WebGL, Web Audio, browser storage, local file handling, HTTP, keyboard, mouse, and touch replace native platform services.</p>
+              </div>
+              <div class="about-item">
+                <h3>Version compatibility</h3>
+                <p>Virtual versions from 2012 through 2016 let places opt into the matching Studio behavior before they are loaded.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Port information</h2>
+          <div class="section-copy">
+            <p>Aya Studio Version &infin;. WebAssembly port by @mollomm1 on Discord.</p>
+          </div>
+        </section>
+      </section>
+
+      <footer>Aya Studio WebAssembly. Open places from Studio or Play, collect assets from Convert, or use the Studio ribbon to create a new one.</footer>
+    </main>
+
+    <script>
+      (() => {
+        const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+        const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+        const dropZone = document.querySelector('#place-drop-zone');
+        const chooseButton = document.querySelector('#choose-place');
+        const status = document.querySelector('#open-status');
+        const convertInput = document.querySelector('#convert-place-file');
+        const scanButton = document.querySelector('#scan-place');
+        const collectButton = document.querySelector('#collect-assets');
+        const convertStatus = document.querySelector('#convert-status');
+        const assetResults = document.querySelector('#asset-results');
+        const assetCount = document.querySelector('#asset-count');
+        const assetResultsBody = document.querySelector('#asset-results-body');
+        const playInput = document.querySelector('#play-place-file');
+        const playButton = document.querySelector('#play-place-button');
+        const playStatus = document.querySelector('#play-status');
+        const playCandidate = document.querySelector('#play-place-candidate');
+        const playCandidateLabel = document.querySelector('#play-place-candidate-label');
+        let opening = false;
+        let scannedPlace = null;
+        let scannedAssets = [];
+        let studioWindow = null;
+        let uploadedPlayPackage = null;
+
+        const validTabs = new Set(['home', 'games', 'play', 'convert', 'about']);
+
+        const selectTab = (name, updateHash = true) => {
+          const nextTab = validTabs.has(name) ? name : 'home';
+
+          for (const tab of tabs) {
+            const selected = tab.dataset.tab === nextTab;
+            tab.setAttribute('aria-selected', String(selected));
+            tab.tabIndex = selected ? 0 : -1;
+          }
+
+          for (const panel of panels)
+            panel.hidden = panel.dataset.panel !== nextTab;
+
+          if (updateHash && window.location.hash !== `#${nextTab}`)
+            history.replaceState(null, '', `#${nextTab}`);
+        };
+
+        const selectedVersion = () => {
+          const selected = document.querySelector('input[name="virtual-version"]:checked');
+          return Number(selected ? selected.value : 2016);
+        };
+
+        const studioApi = async ({ placeMode = false } = {}) => {
+          const currentWindow = window.parent && window.parent.AyaStudio
+            ? window.parent
+            : window.AyaStudio ? window : null;
+          if (currentWindow && currentWindow.AyaStudio.isReady())
+            return currentWindow.AyaStudio;
+
+          if (!studioWindow || studioWindow.closed) {
+            studioWindow = window.open(
+              placeMode ? '/index.html?placeMode=1' : '/index.html',
+              'AyaStudio'
+            );
+            if (!studioWindow)
+              throw new Error('The browser blocked the Studio window. Allow pop-ups and try again.');
+          }
+
+          const deadline = Date.now() + 120000;
+          while (Date.now() < deadline) {
+            if (studioWindow.closed)
+              throw new Error('The Studio window was closed before it finished loading.');
+            const api = studioWindow.AyaStudio;
+            if (api && api.isReady())
+              return api;
+            await new Promise(resolve => setTimeout(resolve, 250));
+          }
+          throw new Error('Studio did not finish loading in time.');
+        };
+
+        const setStatus = (state, title, detail) => {
+          status.dataset.state = state;
+          status.querySelector('strong').textContent = title;
+          status.querySelector('span').textContent = detail;
+        };
+
+        const setOpening = value => {
+          opening = value;
+          dropZone.classList.toggle('busy', value);
+          chooseButton.disabled = value;
+        };
+
+        const setConvertStatus = (state, title, detail) => {
+          convertStatus.dataset.state = state;
+          convertStatus.querySelector('strong').textContent = title;
+          convertStatus.querySelector('span').textContent = detail;
+        };
+
+        const setPlayStatus = (state, title, detail) => {
+          playStatus.dataset.state = state;
+          playStatus.querySelector('strong').textContent = title;
+          playStatus.querySelector('span').textContent = detail;
+        };
+
+        const uploadPlayZip = async file => {
+          const randomBytes = crypto.getRandomValues(new Uint8Array(16));
+          const uploadId = Array.from(randomBytes, value => value.toString(16).padStart(2, '0')).join('');
+          const chunkSize = 1024 * 1024;
+          let result = null;
+          for (let offset = 0; offset < file.size; offset += chunkSize) {
+            const chunk = file.slice(offset, Math.min(offset + chunkSize, file.size));
+            const query = new URLSearchParams({
+              name: file.name,
+              upload: uploadId,
+              offset: String(offset),
+              total: String(file.size)
+            });
+            const response = await fetch(`/api/play/upload-zip-chunk?${query}`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/octet-stream' },
+              body: chunk
+            });
+            if (!response.ok) {
+              const detail = await response.text();
+              let message = detail;
+              try {
+                const error = JSON.parse(detail);
+                message = error.error || detail;
+              } catch (error) {
+              }
+              throw new Error(`ZIP upload failed (${response.status}): ${message.slice(0, 300)}`);
+            }
+            result = await response.json();
+            setPlayStatus(
+              'working',
+              'Reading ZIP package',
+              `Uploaded ${result.received.toLocaleString()} of ${file.size.toLocaleString()} bytes.`
+            );
+          }
+          if (!result || !result.complete || !Array.isArray(result.places) || !result.places.length)
+            throw new Error('The server did not find a place file in the ZIP.');
+          return result;
+        };
+
+        const openPlayCandidate = async (runtimePromise, candidate) => {
+          if (!uploadedPlayPackage || !candidate)
+            throw new Error('Select a place from the ZIP first.');
+          setPlayStatus('working', 'Opening place', candidate.name);
+          const query = new URLSearchParams({
+            game: uploadedPlayPackage.game,
+            file: candidate.file
+          });
+          const api = await runtimePromise;
+          api.setPlaceMode();
+          const result = await api.openPlace(
+            `/api/play/place?${query}`,
+            { name: candidate.file, virtualVersion: selectedVersion() }
+          );
+          setPlayStatus(
+            'idle',
+            'Place loaded',
+            `${result.name} is open in Aya Studio. Use Play Solo there to start the game.`
+          );
+        };
+
+        const loadPlaySelection = async () => {
+          const file = playInput.files && playInput.files[0];
+          if (!file)
+            return;
+          playButton.disabled = true;
+          try {
+            if (/\.zip$/i.test(file.name)) {
+              if (!uploadedPlayPackage) {
+                setPlayStatus('working', 'Preparing ZIP package', file.name);
+                uploadedPlayPackage = await uploadPlayZip(file);
+                playCandidate.replaceChildren();
+                for (const [index, place] of uploadedPlayPackage.places.entries()) {
+                  const option = document.createElement('option');
+                  option.value = String(index);
+                  option.textContent = `${place.name} (${place.size.toLocaleString()} bytes)`;
+                  playCandidate.appendChild(option);
+                }
+                playCandidate.hidden = uploadedPlayPackage.places.length < 2;
+                playCandidateLabel.hidden = uploadedPlayPackage.places.length < 2;
+                playCandidate.disabled = uploadedPlayPackage.places.length < 2;
+                if (uploadedPlayPackage.places.length > 1) {
+                  setPlayStatus(
+                    'idle',
+                    'ZIP ready',
+                    `Installed ${uploadedPlayPackage.assets} local assets. Choose one of the ${uploadedPlayPackage.places.length} place files, then load it.`
+                  );
+                  return;
+                }
+              }
+              const selectedIndex = Number(playCandidate.value || 0);
+              const runtimePromise = studioApi({ placeMode: true });
+              await openPlayCandidate(runtimePromise, uploadedPlayPackage.places[selectedIndex]);
+              return;
+            }
+
+            if (!/\.(rbxl|rbxlx)$/i.test(file.name))
+              throw new Error('Choose a .rbxl, .rbxlx, or .zip file.');
+            setPlayStatus('working', 'Opening local place', file.name);
+            const api = await studioApi({ placeMode: true });
+            api.setPlaceMode();
+            const result = await api.openPlace(file, {
+              virtualVersion: selectedVersion()
+            });
+            setPlayStatus(
+              'idle',
+              'Place loaded',
+              `${result.name} is open in Aya Studio. Use Play Solo there to start the game.`
+            );
+          } catch (error) {
+            setPlayStatus('error', 'Could not load place', error && error.message ? error.message : String(error));
+          } finally {
+            playButton.disabled = !(playInput.files && playInput.files[0]);
+          }
+        };
+
+        playInput.addEventListener('change', () => {
+          uploadedPlayPackage = null;
+          playCandidate.replaceChildren();
+          playCandidate.hidden = true;
+          playCandidateLabel.hidden = true;
+          playCandidate.disabled = true;
+          const file = playInput.files && playInput.files[0];
+          playButton.disabled = !file;
+          if (file)
+            setPlayStatus('idle', 'File selected', file.name);
+          else
+            setPlayStatus('idle', 'Ready to load', 'Select a local place or ZIP package.');
+        });
+
+        playCandidate.addEventListener('change', () => {
+          playCandidate.disabled = !uploadedPlayPackage || uploadedPlayPackage.places.length < 2;
+        });
+
+        playButton.addEventListener('click', loadPlaySelection);
+
+        const getItemProperty = (item, propertyName) => {
+          const properties = Array.from(item.children).find(child => child.tagName === 'Properties');
+          if (!properties)
+            return '';
+          const property = Array.from(properties.children).find(child => child.getAttribute('name') === propertyName);
+          return property ? property.textContent.trim() : '';
+        };
+
+        const getInstanceName = item => getItemProperty(item, 'Name') || item.getAttribute('class') || 'Instance';
+
+        const getInstancePath = item => {
+          const names = [];
+          for (let current = item; current; current = current.parentElement) {
+            if (current.tagName === 'Item')
+              names.push(getInstanceName(current));
+          }
+          return names.reverse().join('.');
+        };
+
+        const getReferencedIds = value => {
+          const text = String(value || '').trim();
+          const ids = new Set();
+          if (/^\d+$/.test(text))
+            ids.add(text);
+          const patterns = [
+            /rbxassetid:\/\/(\d+)/gi,
+            /(?:asset\/?\?id=|assetid=|assetversionid=|assetVersionId=)(\d+)/gi,
+            /(?:SoundId|AnimationId|MeshId|TextureID|TextureId|Image|Texture)\s*=\s*["']?(\d+)/gi
+          ];
+          for (const pattern of patterns) {
+            for (const match of text.matchAll(pattern))
+              ids.add(match[1]);
+          }
+          return [...ids];
+        };
+
+        const assetTypeForProperty = (className, property) => {
+          const types = {
+            AnimationId: 'Animation',
+            SoundId: 'Audio',
+            MeshId: 'Mesh',
+            MeshID: 'Mesh',
+            TextureID: 'Texture',
+            TextureId: 'Texture',
+            ShirtTemplate: 'Clothing',
+            PantsTemplate: 'Clothing',
+            Graphic: 'Decal',
+            Texture: 'Decal/texture',
+            Image: 'Image/decal',
+            Video: 'Video',
+            ColorMap: 'Surface texture',
+            MetalnessMap: 'Surface texture',
+            NormalMap: 'Surface texture',
+            RoughnessMap: 'Surface texture',
+            SkyboxBk: 'Sky texture',
+            SkyboxDn: 'Sky texture',
+            SkyboxFt: 'Sky texture',
+            SkyboxLf: 'Sky texture',
+            SkyboxRt: 'Sky texture',
+            SkyboxUp: 'Sky texture'
+          };
+          if (property === 'Texture' && className === 'ParticleEmitter')
+            return 'Particle texture';
+          if (property === 'Texture' && className === 'Sky')
+            return 'Sky texture';
+          if (property === 'Texture' && ['Beam', 'Trail'].includes(className))
+            return 'Effect texture';
+          return types[property] || 'Asset';
+        };
+
+        const scanPlaceFile = async file => {
+          if (!file || !/\.(rbxlx|rbxl)$/i.test(file.name))
+            throw new Error('Choose a .rbxl or .rbxlx place file.');
+
+          let xmlFile = file;
+          if (/\.rbxl$/i.test(file.name)) {
+            setConvertStatus('working', 'Converting binary place', 'Using the local rbx-dom binary-to-XML converter.');
+            const response = await fetch('/api/intercept-assets/convert-place', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/octet-stream' },
+              body: file
+            });
+            if (!response.ok) {
+              let detail = `HTTP ${response.status}`;
+              try {
+                const error = await response.json();
+                if (error.error)
+                  detail = error.error;
+              } catch (_) {
+              }
+              throw new Error(detail);
+            }
+            const xmlBlob = await response.blob();
+            xmlFile = new File([xmlBlob], file.name.replace(/\.rbxl$/i, '.rbxlx'), {
+              type: 'application/xml'
+            });
+          }
+
+          const source = await xmlFile.text();
+          const document = new DOMParser().parseFromString(source, 'application/xml');
+          if (document.querySelector('parsererror'))
+            throw new Error('Could not parse this .rbxlx as valid XML.');
+          const items = Array.from(document.getElementsByTagName('Item'));
+          if (!items.length)
+            throw new Error('No Roblox instances were found in this XML place.');
+
+          const assetsById = new Map();
+          const addReferences = (value, context) => {
+            for (const id of getReferencedIds(value)) {
+              const contexts = assetsById.get(id) || [];
+              contexts.push(context);
+              assetsById.set(id, contexts);
+            }
+          };
+
+          const assetProperties = new Set([
+            'AnimationId', 'SoundId', 'MeshId', 'MeshID', 'TextureID', 'TextureId',
+            'ShirtTemplate', 'PantsTemplate', 'Graphic', 'Texture', 'Image', 'Video',
+            'ColorMap', 'MetalnessMap', 'NormalMap', 'RoughnessMap',
+            'SkyboxBk', 'SkyboxDn', 'SkyboxFt', 'SkyboxLf', 'SkyboxRt', 'SkyboxUp'
+          ]);
+          for (const item of items) {
+            const className = item.getAttribute('class') || 'Instance';
+            const instanceName = getInstanceName(item);
+            const instancePath = getInstancePath(item);
+            const properties = Array.from(item.children).find(child => child.tagName === 'Properties');
+            if (!properties)
+              continue;
+
+            for (const property of Array.from(properties.children)) {
+              const propertyName = property.getAttribute('name') || '';
+              if (assetProperties.has(propertyName)) {
+                addReferences(property.textContent, {
+                  type: assetTypeForProperty(className, propertyName),
+                  name: instanceName,
+                  path: instancePath,
+                  property: propertyName
+                });
+              }
+              if (['Script', 'LocalScript', 'ModuleScript'].includes(className) && propertyName === 'Source') {
+                addReferences(property.textContent, {
+                  type: 'Script reference',
+                  name: instanceName,
+                  path: instancePath,
+                  property: 'Source'
+                });
+              }
+            }
+          }
+
+          return {
+            placeFile: xmlFile,
+            assets: [...assetsById.entries()].map(([id, contexts]) => ({ id, contexts }))
+          };
+        };
+
+        const renderAssetResults = assets => {
+          assetResultsBody.replaceChildren();
+          let occurrenceCount = 0;
+          for (const asset of assets) {
+            for (const context of asset.contexts) {
+              occurrenceCount += 1;
+              const row = document.createElement('tr');
+              for (const value of [
+                asset.id,
+                context.type,
+                `${context.name} (${context.path})`,
+                context.property,
+                'Not downloaded'
+              ]) {
+                const cell = document.createElement('td');
+                cell.textContent = value;
+                row.appendChild(cell);
+              }
+              asset.rows ||= [];
+              asset.rows.push(row);
+              assetResultsBody.appendChild(row);
+            }
+          }
+          assetResults.hidden = false;
+          assetCount.textContent = `${assets.length} unique asset IDs across ${occurrenceCount} instance references.`;
+        };
+
+        const updateAssetResult = (asset, state, message) => {
+          for (const row of asset.rows || []) {
+            const cell = row.lastElementChild;
+            cell.textContent = message;
+            cell.className = 'asset-result';
+            cell.dataset.state = state;
+          }
+        };
+
+        const savePlaceFile = async file => {
+          const uploadId = crypto.randomUUID().replace(/-/g, '');
+          const chunkSize = 1024 * 1024;
+          for (let offset = 0; offset < file.size; offset += chunkSize) {
+            const chunk = file.slice(offset, Math.min(offset + chunkSize, file.size));
+            const query = new URLSearchParams({
+              name: file.name,
+              upload: uploadId,
+              offset: String(offset),
+              total: String(file.size)
+            });
+            const response = await fetch(`/api/intercept-assets/save-place-chunk?${query}`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/octet-stream' },
+              body: chunk
+            });
+            if (!response.ok) {
+              let detail = `HTTP ${response.status}`;
+              try {
+                const error = await response.text();
+                if (error)
+                  detail = error.slice(0, 300);
+              } catch (_) {
+              }
+              throw new Error(`Could not upload place chunk (${offset + chunk.size}/${file.size} bytes): ${detail}`);
+            }
+            const result = await response.json();
+            if (result.received !== offset + chunk.size || result.complete !== (result.received === file.size))
+              throw new Error('The server did not confirm the uploaded place chunk.');
+            setConvertStatus(
+              'working',
+              'Saving place into package',
+              `Uploaded ${result.received.toLocaleString()} of ${file.size.toLocaleString()} place bytes.`
+            );
+          }
+        };
+
+        const collectPlaceAssets = async () => {
+          if (!scannedPlace)
+            return;
+          collectButton.disabled = true;
+          scanButton.disabled = true;
+          const gameName = scannedPlace.name.replace(/\.rbxlx$/i, '');
+          const report = {
+            place: scannedPlace.name,
+            generatedAt: new Date().toISOString(),
+            assets: []
+          };
+          const failures = [];
+
+          try {
+            await savePlaceFile(scannedPlace);
+            for (let index = 0; index < scannedAssets.length; index += 1) {
+              const asset = scannedAssets[index];
+              const primaryContext = asset.contexts[0] || {};
+              setConvertStatus('working', `Downloading asset ${index + 1} of ${scannedAssets.length}`,
+                `Asset ${asset.id} (${primaryContext.type || 'Asset'})`);
+              try {
+                const response = await fetch(`/RobloxProxy/www.roblox.com/asset/?id=${encodeURIComponent(asset.id)}`);
+                if (!response.ok) {
+                  const detail = `HTTP ${response.status}: ${(await response.text()).slice(0, 300)}`;
+                  throw new Error(detail);
+                }
+                const contentType = response.headers.get('Content-Type') || 'application/octet-stream';
+                const body = await response.arrayBuffer();
+                const saveResponse = await fetch(
+                  `/api/intercept-assets/save-asset?place=${encodeURIComponent(gameName)}&id=${encodeURIComponent(asset.id)}`,
+                  {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/octet-stream',
+                      'X-Asset-Content-Type': contentType,
+                      'X-Asset-Contexts': JSON.stringify(asset.contexts.slice(0, 20).map(context => ({
+                        type: context.type.slice(0, 300),
+                        name: context.name.slice(0, 300),
+                        path: context.path.slice(0, 300),
+                        property: context.property.slice(0, 300)
+                      })))
+                    },
+                    body
+                  }
+                );
+                if (!saveResponse.ok)
+                  throw new Error(`Could not save local asset (HTTP ${saveResponse.status}).`);
+                const saved = await saveResponse.json();
+                updateAssetResult(asset, 'saved', `Saved ${saved.file}`);
+                report.assets.push({ id: asset.id, status: 'saved', file: saved.file, contexts: asset.contexts });
+              } catch (error) {
+                const message = error && error.message ? error.message : String(error);
+                failures.push(asset.id);
+                updateAssetResult(asset, 'failed', message);
+                report.assets.push({ id: asset.id, status: 'failed', error: message, contexts: asset.contexts });
+              }
+            }
+
+            const reportResponse = await fetch(`/api/intercept-assets/save-report?place=${encodeURIComponent(gameName)}`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(report)
+            });
+            if (!reportResponse.ok)
+              throw new Error(`Could not save the asset report (HTTP ${reportResponse.status}).`);
+            const archiveResponse = await fetch(`/api/intercept-assets/archive?place=${encodeURIComponent(gameName)}`);
+            if (!archiveResponse.ok)
+              throw new Error(`Could not create ZIP package (HTTP ${archiveResponse.status}).`);
+            const archive = await archiveResponse.blob();
+            const downloadUrl = URL.createObjectURL(archive);
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = `${gameName}-offline-assets.zip`;
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+            setConvertStatus(
+              failures.length ? 'error' : 'idle',
+              failures.length ? 'Package ready with missing assets' : 'Package ready',
+              `${scannedAssets.length - failures.length} downloaded, ${failures.length} failed. The ZIP contains the place, InterceptAssets, and asset-report.json.`
+            );
+          } catch (error) {
+            setConvertStatus('error', 'Could not create package', error && error.message ? error.message : String(error));
+          } finally {
+            scanButton.disabled = false;
+            collectButton.disabled = false;
+          }
+        };
+
+        convertInput.addEventListener('change', async () => {
+          const file = convertInput.files && convertInput.files[0];
+          scannedPlace = null;
+          scannedAssets = [];
+          scanButton.disabled = !file;
+          collectButton.disabled = true;
+          assetResults.hidden = true;
+          assetResultsBody.replaceChildren();
+          if (file)
+            setConvertStatus('idle', 'Place selected', file.name);
+        });
+
+        scanButton.addEventListener('click', async () => {
+          const file = convertInput.files && convertInput.files[0];
+          if (!file)
+            return;
+          scanButton.disabled = true;
+          setConvertStatus('working', 'Scanning place', 'Converting if needed, then reading instance properties and script references.');
+          try {
+            const scanResult = await scanPlaceFile(file);
+            scannedAssets = scanResult.assets;
+            scannedPlace = scanResult.placeFile;
+            for (const asset of scannedAssets)
+              asset.rows = [];
+            renderAssetResults(scannedAssets);
+            collectButton.disabled = false;
+            setConvertStatus(
+              'idle',
+              'Scan complete',
+              scannedAssets.length
+                ? `Found ${scannedAssets.length} unique asset IDs. Downloads use public Roblox access only.`
+                : 'No asset IDs were found in supported properties or literal script references.'
+            );
+          } catch (error) {
+            setConvertStatus('error', 'Could not scan place', error && error.message ? error.message : String(error));
+          } finally {
+            scanButton.disabled = false;
+          }
+        });
+
+        collectButton.addEventListener('click', collectPlaceAssets);
+
+        const openFile = async file => {
+          if (!file || opening)
+            return;
+
+          if (!/\.(rbxl|rbxlx)$/i.test(file.name || '')) {
+            setStatus('error', 'Unsupported file', 'Choose a .rbxl or .rbxlx place file.');
+            return;
+          }
+
+          const virtualVersion = selectedVersion();
+          setOpening(true);
+          setStatus('working', `Opening ${file.name}`, `Preparing the place for virtual version ${virtualVersion}.`);
+
+          try {
+            const result = await (await studioApi()).openPlace(file, { virtualVersion });
+            setStatus('working', `Opening ${result.name}`, `Aya Studio is loading this place as virtual version ${result.virtualVersion}.`);
+          } catch (error) {
+            setStatus('error', 'Could not open place', error && error.message ? error.message : String(error));
+          } finally {
+            setOpening(false);
+          }
+        };
+
+        const choosePlace = async () => {
+          if (opening)
+            return;
+
+          const virtualVersion = selectedVersion();
+          try {
+            const pending = (await studioApi()).pickPlace({ virtualVersion });
+            setOpening(true);
+            setStatus('working', 'Choose a local place', `The place will open as virtual version ${virtualVersion}.`);
+            const result = await pending;
+            if (result) {
+              setStatus('working', `Opening ${result.name}`, `Aya Studio is loading this place as virtual version ${result.virtualVersion}.`);
+            } else {
+              setStatus('idle', 'Ready to open', 'No file was selected.');
+            }
+          } catch (error) {
+            setStatus('error', 'Could not open place', error && error.message ? error.message : String(error));
+          } finally {
+            setOpening(false);
+          }
+        };
+
+        for (const tab of tabs) {
+          tab.addEventListener('click', () => selectTab(tab.dataset.tab));
+          tab.addEventListener('keydown', event => {
+            if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key))
+              return;
+
+            event.preventDefault();
+            const current = tabs.indexOf(tab);
+            let next = current;
+            if (event.key === 'ArrowLeft')
+              next = (current - 1 + tabs.length) % tabs.length;
+            else if (event.key === 'ArrowRight')
+              next = (current + 1) % tabs.length;
+            else if (event.key === 'Home')
+              next = 0;
+            else if (event.key === 'End')
+              next = tabs.length - 1;
+
+            selectTab(tabs[next].dataset.tab);
+            tabs[next].focus();
+          });
+        }
+
+        for (const link of document.querySelectorAll('[data-tab-link]')) {
+          link.addEventListener('click', event => {
+            event.preventDefault();
+            selectTab(link.dataset.tabLink);
+          });
+        }
+
+        for (const button of document.querySelectorAll('[data-open-games]')) {
+          button.addEventListener('click', () => {
+            selectTab('games');
+            chooseButton.focus();
+          });
+        }
+
+        chooseButton.addEventListener('click', event => {
+          event.stopPropagation();
+          choosePlace();
+        });
+
+        dropZone.addEventListener('click', () => choosePlace());
+        dropZone.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            choosePlace();
+          }
+        });
+
+        for (const eventName of ['dragenter', 'dragover']) {
+          dropZone.addEventListener(eventName, event => {
+            event.preventDefault();
+            if (!opening)
+              dropZone.classList.add('dragging');
+          });
+        }
+
+        for (const eventName of ['dragleave', 'drop']) {
+          dropZone.addEventListener(eventName, event => {
+            event.preventDefault();
+            dropZone.classList.remove('dragging');
+          });
+        }
+
+        dropZone.addEventListener('drop', event => {
+          const file = event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0];
+          openFile(file);
+        });
+
+        window.addEventListener('hashchange', () => {
+          selectTab(window.location.hash.slice(1), false);
+        });
+
+        window.AyaWelcome = {
+          showTab: selectTab,
+          openPlace: (source, virtualVersion = selectedVersion()) =>
+            studioApi().then(api => api.openPlace(source, { virtualVersion }))
+        };
+
+        selectTab(window.location.hash.slice(1), false);
+      })();
+    </script>
+  </body>
+</html>

@@ -21,6 +21,18 @@ if useNewConsole then
 	local debounce = false
 
 	local developerConsole;
+	spawn(function()
+		RequireDeveloperConsoleModule()
+		local permissions = DeveloperConsoleModule.GetPermissions()
+		local messagesAndStats = DeveloperConsoleModule.GetMessagesAndStats(permissions)
+		if messagesAndStats.OutputMessageSyncLocal then
+			messagesAndStats.OutputMessageSyncLocal:GetMessages()
+		end
+		if messagesAndStats.OutputMessageSyncServer then
+			messagesAndStats.OutputMessageSyncServer:GetMessages()
+		end
+	end)
+
 	function ToggleConsole.OnInvoke(duplicate)
 		if debounce then
 			return

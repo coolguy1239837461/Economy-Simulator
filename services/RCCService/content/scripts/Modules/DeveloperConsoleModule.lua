@@ -13,8 +13,21 @@ local pairs = pairs
 local os_time = os.time
 
 local DEBUG = false
+local COPY_LOGS_PREFIX = "__AYA_STUDIO_COPY_LOGS__:"
+local COPY_LOGS_CHUNK_SIZE = 2048
 
 local ContextActionService = game:GetService("ContextActionService")
+local TextService = game:GetService("TextService")
+
+local function formatLogTimestamp(timestamp)
+	local localTime = timestamp - os_time() + math.floor(tick())
+	local dayTime = localTime % 86400
+	return string.format("%02d:%02d:%02d",
+		math.floor(dayTime / 3600),
+		math.floor(dayTime / 60) % 60,
+		math.floor(dayTime) % 60
+	)
+end
 
 -- Eye candy uses RenderStepped
 local EYECANDY_ENABLED = true
@@ -355,11 +368,70 @@ function DeveloperConsole.new(screenGui, permissions, messagesAndStats)
 	
 	do -- Title
 		local title = Primitives.InvisibleTextLabel(handle, 'Title', "ROBLOX Developer Console")
-		title.Size = UDim2_new(1, -5, 1, 0)
+		title.Size = UDim2_new(1, -86, 1, 0)
 		title.Position = UDim2_new(0, 5, 0, 0)	
 		title.FontSize = Enum.FontSize.Size18
 		title.TextXAlignment = Enum.TextXAlignment.Left
 	end
+
+	local copyLogsButton = Primitives.TextButton(handle, 'CopyLogs', 'Copy Logs')
+	copyLogsButton.Size = UDim2_new(0, 76, 1, 0)
+	copyLogsButton.Position = UDim2_new(1, -76, 0, 0)
+	copyLogsButton.FontSize = Enum.FontSize.Size14
+	copyLogsButton.AutoButtonColor = false
+	local copyLogsButtonEffect = devConsole:CreateButtonEffectFunction(copyLogsButton)
+	devConsole:ConnectButtonHover(copyLogsButton, copyLogsButtonEffect)
+	copyLogsButton.MouseButton1Click:connect(function()
+		local lines = {}
+
+		local function appendMessages(source, outputMessageSync)
+			if not outputMessageSync then
+				return
+			end
+			for _, message in ipairs(outputMessageSync:GetMessages()) do
+				if string.sub(message.Message, 1, #COPY_LOGS_PREFIX) ~= COPY_LOGS_PREFIX then
+					lines[#lines + 1] = string.format("[%s] [%s] %s", source, message.Time, message.Message)
+				end
+			end
+		end
+
+		local localOutput = devConsole.MessagesAndStats.OutputMessageSyncLocal
+		if localOutput then
+			localOutput:GetMessages()
+			local LogService = game:GetService("LogService")
+			for _, message in ipairs(LogService:GetLogHistory()) do
+				local text = message.message or ""
+				if string.sub(text, 1, #COPY_LOGS_PREFIX) ~= COPY_LOGS_PREFIX then
+					lines[#lines + 1] = string.format(
+						"[Client] [%s] %s",
+						formatLogTimestamp(message.timestamp),
+						text
+					)
+				end
+			end
+		end
+		appendMessages("Server", devConsole.MessagesAndStats.OutputMessageSyncServer)
+		if #lines == 0 then
+			lines[1] = "No console logs."
+		end
+
+		local copiedLogs = table.concat(lines, "\n")
+		print(COPY_LOGS_PREFIX .. "BEGIN")
+		local startPosition = 1
+		while startPosition <= #copiedLogs do
+			local endPosition = math.min(startPosition + COPY_LOGS_CHUNK_SIZE - 1, #copiedLogs)
+			while endPosition < #copiedLogs do
+				local nextByte = string.byte(copiedLogs, endPosition + 1)
+				if not nextByte or nextByte < 128 or nextByte >= 192 then
+					break
+				end
+				endPosition = endPosition - 1
+			end
+			print(COPY_LOGS_PREFIX .. "CHUNK:" .. string.sub(copiedLogs, startPosition, endPosition))
+			startPosition = endPosition + 1
+		end
+		print(COPY_LOGS_PREFIX .. "END")
+	end)
 	
 	local function setCornerButtonImageSize(buttonImage, buttonImageSize)
 		buttonImage.Size = UDim2_new(buttonImageSize, 0, buttonImageSize, 0)
@@ -1970,7 +2042,9 @@ end
 do
 	local padding = 5
 	local LabelSize = UDim2_new(1, -padding, 0, 2048)
-	
+	local MIN_MESSAGE_HEIGHT = 18
+	local MESSAGE_FONT_SIZE = 14
+
 	local TextColors = Style.MessageColors
 	local TextColorUnknown = Color3_new(0.5, 0, 1)
 	
@@ -2002,6 +2076,21 @@ do
 		output.Frame = frame
 		
 		local textWrappedEnabled = false
+
+		local function getMessageLabelHeight(label)
+			local hasExplicitLineBreak = string.find(label.Text, "\n", 1, true) ~= nil
+			if not textWrappedEnabled and not hasExplicitLineBreak then
+				return MIN_MESSAGE_HEIGHT + 4
+			end
+			local textWidth = textWrappedEnabled and math_max(frame.AbsoluteSize.X - padding, 1) or 100000
+			local textSize = TextService:GetTextSize(
+				label.Text,
+				MESSAGE_FONT_SIZE,
+				Enum.Font.Code,
+				Vector2.new(textWidth, 100000)
+			)
+			return math_max(textSize.Y, MIN_MESSAGE_HEIGHT) + 4
+		end
 		
 		do
 			local lastX = 0
@@ -2028,13 +2117,11 @@ do
 			for i = 1, #labels do
 				local label = labels[i]
 				label.TextWrapped = textWrappedEnabled
-				local height = label.TextBounds.Y
-				label.Size = LabelSize -- UDim2_new(1, 0, 0, height)
+				label.Size = LabelSize
+				local height = getMessageLabelHeight(label)
+				label.Size = UDim2_new(1, -padding, 0, height)
 				label.Position = UDim2_new(0, padding, 0, y)
 				y = y + height
-				if height > 16 then
-					y = y + 4
-				end
 			end
 			setHeight(y)
 		end
@@ -2077,8 +2164,8 @@ do
 						label = Instance_new('TextLabel', frame)
 						label.ZIndex = ZINDEX
 						label.BackgroundTransparency = 1
-						--label.Font = Style.Font
-						label.FontSize = 'Size10'
+						label.Font = Enum.Font.Code
+						label.FontSize = Enum.FontSize.Size14
 						label.TextXAlignment = 'Left'
 						label.TextYAlignment = 'Top'
 						labels[labelPosition] = label
@@ -2088,15 +2175,11 @@ do
 					label.TextColor3 = TextColors[message.Type] or TextColorUnknown
 					label.Text = message.Time .. " -- " .. message.Message
 					
-					local height = label.TextBounds.Y
-					label.Size = LabelSize -- UDim2_new(1, -padding, 0, height)
+					local height = getMessageLabelHeight(label)
+					label.Size = UDim2_new(1, -padding, 0, height)
 					label.Position = UDim2_new(0, padding, 0, y)
 
 					y = y + height
-					
-					if height > 16 then
-						y = y + 4
-					end
 				else
 					labelPositions[i] = false
 				end
@@ -2862,6 +2945,9 @@ do
 		
 		-- Filter "ClassDescriptor failed to learn" errors
 		local function filterMessageOnAdd(message)
+			if string.sub(message.Message, 1, #COPY_LOGS_PREFIX) == COPY_LOGS_PREFIX then
+				return true
+			end
 			if message.Type ~= Enum.MessageType.MessageWarning.Value then
 				return false
 			end

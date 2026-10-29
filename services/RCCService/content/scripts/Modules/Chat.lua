@@ -934,6 +934,7 @@ local function CreateChatBarWidget(settings)
 
 		[function(chatBarText) return string.find(chatBarText, "^/%?") end] = "Help";
 		[function(chatBarText) return string.find(chatBarText, nocase("^/help")) end] = "Help";
+		[function(chatBarText) return string.find(chatBarText, nocase("^/console%s*$")) end] = "Console";
 
 		[function(chatBarText) return string.find(chatBarText, nocase("^/block ") .. "(%w+_?%w+)") end] = "Block";
 
@@ -1120,7 +1121,7 @@ local function CreateChatBarWidget(settings)
 							-- You can only emote to everyone.
 							this:SetMessageMode('All')
 						elseif not requireWhitespaceAfterChatMode then -- Some non-chat related command
-							if actionType == "Help" then
+							if actionType == "Help" or actionType == "Console" then
 								this:SetChatBarText("") -- Clear the chat so we don't send /? to everyone
 							end
 							this.ChatCommandEvent:fire(true, actionType, capture)
@@ -2320,6 +2321,7 @@ local function CreateChat()
 			this.ChatWindowWidget:AddSystemChatMessage("/w [PlayerName] or /whisper [PlayerName] - Whisper Chat")
 			this.ChatWindowWidget:AddSystemChatMessage("/t or /team - Team Chat")
 			this.ChatWindowWidget:AddSystemChatMessage("/a or /all - All Chat")
+			this.ChatWindowWidget:AddSystemChatMessage("/console - Open the Developer Console")
 
 			this.ChatWindowWidget:AddSystemChatMessage("/block [PlayerName] - Block communications from Target Player")
 			this.ChatWindowWidget:AddSystemChatMessage("/unblock [PlayerName] - Restore communications with Target Player")
@@ -2386,6 +2388,18 @@ local function CreateChat()
 			this.ChatBarWidget.ChatCommandEvent:connect(function(success, actionType, capture)
 				if actionType == "Help" then
 					this:PrintHelp()
+				elseif actionType == "Console" then
+					local robloxGui = game:GetService("CoreGui"):FindFirstChild("RobloxGui")
+					local controlFrame = robloxGui and robloxGui:FindFirstChild("ControlFrame")
+					local toggleConsole = controlFrame and controlFrame:FindFirstChild("ToggleDevConsole")
+					if not toggleConsole and robloxGui then
+						toggleConsole = robloxGui:FindFirstChild("ToggleDevConsole")
+					end
+					if toggleConsole and toggleConsole:IsA("BindableFunction") then
+						toggleConsole:Invoke()
+					else
+						this.ChatWindowWidget:AddSystemChatMessage("The Developer Console is not available.")
+					end
 				elseif actionType == "Block" then
 					local blockPlayerName = capture and tostring(capture) or ""
 					local playerToBlock = Util.GetPlayerByName(blockPlayerName)
@@ -2651,4 +2665,3 @@ do
 end
 
 return moduleApiTable
-
